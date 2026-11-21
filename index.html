@@ -1,0 +1,2624 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新日興 SZS｜精密製造與樞紐產品展示中心</title>
+  <!-- Google Fonts: Noto Serif TC, Noto Sans TC & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Canvas Confetti for Wheel Celebration -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: {
+              950: '#0D0B0A',
+              900: '#12100E',
+              850: '#171412',
+              800: '#1C1917',
+              750: '#221E1B',
+              700: '#26221F',
+              600: '#2E2925',
+              500: '#3D3631',
+            },
+            amberwarm: {
+              300: '#F5A36C',
+              400: '#F28B48',
+              500: '#E87A35',
+              600: '#C96120',
+              700: '#9E4814',
+            },
+            honey: {
+              400: '#F7C05C',
+              500: '#F5B041',
+            },
+            ivory: {
+              100: '#F5F0EB',
+              200: '#D6CEC5',
+              300: '#968B80',
+              400: '#6E645B',
+            },
+            sage: {
+              500: '#6B9966',
+              600: '#527A4E',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans TC"', 'sans-serif'],
+            serif: ['"Noto Serif TC"', 'serif'],
+          },
+          boxShadow: {
+            'editorial': '0 12px 32px -6px rgba(0, 0, 0, 0.55), 0 4px 12px -2px rgba(0, 0, 0, 0.35)',
+            'editorial-hover': '0 20px 44px -8px rgba(232, 122, 53, 0.22), 0 8px 18px -4px rgba(0, 0, 0, 0.5)',
+            'bento': '0 4px 16px rgba(0, 0, 0, 0.4)',
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #12100E;
+      background-image: radial-gradient(circle at 82% 8%, rgba(232, 122, 53, 0.08) 0%, transparent 42%),
+                        radial-gradient(circle at 12% 88%, rgba(245, 176, 65, 0.05) 0%, transparent 45%);
+      color: #F5F0EB;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
+    }
+
+    .font-editorial {
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    /* Dark Mode Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #12100E;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2E2925;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #473F39;
+    }
+
+    /* Dark Editorial Card & Bento Effects */
+    .bento-card {
+      background: #1C1917;
+      border: 1px solid #2E2925;
+      border-radius: 1.5rem;
+      box-shadow: 0 12px 32px -6px rgba(0, 0, 0, 0.5);
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, background-color 0.25s ease;
+    }
+    .bento-card-hover:hover {
+      transform: translateY(-3px);
+      background: #221E1B;
+      box-shadow: 0 20px 44px -8px rgba(232, 122, 53, 0.18), 0 8px 18px -4px rgba(0, 0, 0, 0.55);
+      border-color: rgba(232, 122, 53, 0.45);
+    }
+
+    /* Smooth Image Fade-in & Zoom */
+    .tech-photo {
+      opacity: 0;
+      transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .tech-photo.loaded {
+      opacity: 1;
+    }
+    .group:hover .tech-photo-zoom {
+      transform: scale(1.05);
+    }
+
+    /* Wheel Pointer Bounce */
+    @keyframes pointerTick {
+      0%, 100% { transform: translateX(-50%) rotate(0deg); }
+      50% { transform: translateX(-50%) rotate(-14deg); }
+    }
+    .pointer-ticking {
+      animation: pointerTick 0.14s ease-in-out infinite;
+    }
+
+    /* Fade In View Transition */
+    .view-animate {
+      animation: fadeSlideUp 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Hide scrollbar for horizontal chips on mobile */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col lg:flex-row selection:bg-amberwarm-500/30 selection:text-amberwarm-300">
+
+  <!-- ==================== DESKTOP LEFT FIXED SIDEBAR ==================== -->
+  <aside class="hidden lg:flex lg:flex-col lg:w-72 lg:fixed lg:inset-y-0 bg-obsidian-850/95 backdrop-blur-md border-r border-obsidian-600 z-30 px-5 py-7 justify-between">
+    <div>
+      <!-- SZS Corporate Brand Identity -->
+      <div class="flex items-center gap-3.5 px-2 mb-7 cursor-pointer" onclick="switchTab('products')">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-amberwarm-500 to-amberwarm-600 flex items-center justify-center text-white shadow-lg shadow-amberwarm-500/25 shrink-0 font-black tracking-tighter text-sm">
+          SZS
+        </div>
+        <div>
+          <span class="text-[11px] font-bold tracking-widest uppercase text-amberwarm-400 block">TWSE: 3376・60th ANNIV.</span>
+          <h1 class="text-lg font-editorial font-black text-ivory-100 tracking-tight leading-tight">新日興股份有限公司</h1>
+        </div>
+      </div>
+
+      <!-- Corporate Overview Tag -->
+      <div class="mx-1 mb-6 p-3.5 rounded-2xl bg-obsidian-800 border border-obsidian-600">
+        <div class="flex items-center justify-between text-xs text-ivory-300 mb-1">
+          <span class="font-semibold flex items-center gap-1.5 text-ivory-200">
+            <span class="w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span>
+            全球樞紐與精密製造領導廠
+          </span>
+          <span id="sidebar-count-badge" class="font-bold text-amberwarm-400 bg-amberwarm-500/15 border border-amberwarm-500/30 px-2 py-0.5 rounded-full">8 大產品線</span>
+        </div>
+        <p class="text-xs text-ivory-300 leading-relaxed">
+          群策群力・展望全球・企業永續。累積 1,286 件全球專利，提供垂直上下整合精密機構解決方案。
+        </p>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="space-y-1.5" id="desktop-nav">
+        <button data-tab="products" onclick="switchTab('products')" class="nav-btn w-full flex items-center gap-3.5 px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all">
+          <i data-lucide="building-2" class="w-5 h-5"></i>
+          <span>公司簡介與產品線</span>
+          <span class="ml-auto text-[11px] px-2 py-0.5 rounded-full bg-amberwarm-500/20 text-amberwarm-300 font-bold">總覽</span>
+        </button>
+
+        <button data-tab="compare" onclick="switchTab('compare')" class="nav-btn w-full flex items-center gap-3.5 px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all">
+          <i data-lucide="columns-3" class="w-5 h-5"></i>
+          <span>規格比對工作台</span>
+          <span id="nav-compare-count" class="ml-auto text-[11px] px-2 py-0.5 rounded-full bg-obsidian-700 text-amberwarm-300 font-bold">3</span>
+        </button>
+
+        <button data-tab="wheel" onclick="switchTab('wheel')" class="nav-btn w-full flex items-center gap-3.5 px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all">
+          <i data-lucide="compass" class="w-5 h-5"></i>
+          <span>智能選型轉盤</span>
+          <span class="ml-auto text-[11px] px-2 py-0.5 rounded-full bg-obsidian-700 text-ivory-200 font-bold">探索</span>
+        </button>
+
+        <button data-tab="favorites" onclick="switchTab('favorites')" class="nav-btn w-full flex items-center gap-3.5 px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all">
+          <i data-lucide="bookmark-check" class="w-5 h-5"></i>
+          <span>採購收藏清單</span>
+          <span id="nav-fav-count" class="ml-auto text-xs px-2 py-0.5 rounded-full bg-obsidian-700 text-ivory-100 font-bold">1</span>
+        </button>
+
+        <button data-tab="support" onclick="switchTab('support')" class="nav-btn w-full flex items-center gap-3.5 px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all">
+          <i data-lucide="headset" class="w-5 h-5"></i>
+          <span>客服與技術支援</span>
+          <span id="nav-ticket-count" class="ml-auto text-xs px-2 py-0.5 rounded-full bg-sage-500/20 text-sage-500 font-bold">RFQ</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Bottom Flagship Product Spotlight with Real Industrial Photo -->
+    <div class="pt-4 border-t border-obsidian-600">
+      <div class="rounded-2xl bg-obsidian-800 border border-obsidian-600 overflow-hidden cursor-pointer hover:border-amberwarm-500/60 transition group" onclick="openProductDetail('nb-hinges')">
+        <div class="h-24 w-full overflow-hidden relative bg-obsidian-900">
+          <img
+            src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80"
+            alt="筆記型電腦樞紐 NB Hinges"
+            onload="this.classList.add('loaded')"
+            onerror="handleImgError(this, 'hinge')"
+            class="tech-photo tech-photo-zoom w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian-900/85 via-transparent to-transparent"></div>
+          <span class="absolute top-2 left-2 inline-flex items-center gap-1 text-[10px] font-extrabold text-ivory-100 bg-obsidian-950/85 backdrop-blur-sm border border-amberwarm-500/40 px-2.5 py-0.5 rounded-full">
+            <i data-lucide="zap" class="w-3 h-3 text-amberwarm-400 fill-amberwarm-400"></i>
+            旗艦核心主力
+          </span>
+        </div>
+        <div class="p-3">
+          <p class="text-sm font-extrabold text-ivory-100 truncate group-hover:text-amberwarm-400 transition">筆記型電腦樞紐 (NB Hinges)</p>
+          <p class="text-[11px] text-ivory-300 mt-0.5">全球市佔領先・超薄與 360° 雙軸專利</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== MOBILE TOP HEADER ==================== -->
+  <header class="lg:hidden sticky top-0 z-30 bg-obsidian-850/95 backdrop-blur-md border-b border-obsidian-600 px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2.5" onclick="switchTab('products')">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amberwarm-500 to-amberwarm-600 flex items-center justify-center text-white shadow-sm font-black text-xs">
+        SZS
+      </div>
+      <div>
+        <h1 class="text-base font-editorial font-black text-ivory-100 leading-none">新日興 SZS</h1>
+        <span class="text-[10px] font-bold tracking-wider text-amberwarm-400 uppercase">TWSE: 3376・Precision</span>
+      </div>
+    </div>
+    <button onclick="openProductDetail('nb-hinges')" class="flex items-center gap-1.5 text-xs font-bold bg-amberwarm-500/15 text-amberwarm-300 border border-amberwarm-500/35 px-3 py-1.5 rounded-full active:scale-95 transition">
+      <i data-lucide="zap" class="w-3.5 h-3.5 text-amberwarm-400 fill-amberwarm-400"></i>
+      <span>主力：NB 樞紐</span>
+    </button>
+  </header>
+
+  <!-- ==================== MAIN CONTENT AREA ==================== -->
+  <main class="flex-1 lg:pl-72 pb-24 lg:pb-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-5 lg:pt-9">
+
+      <!-- =====================================================================
+           MODULE 1: 公司簡介與理念 & 全系列產品線 (COMPANY PROFILE & PRODUCTS)
+      ====================================================================== -->
+      <section id="view-products" class="view-section view-animate">
+        
+        <!-- SZS Corporate Profile, R&D & ESG Manifesto Banner -->
+        <div class="bento-card overflow-hidden mb-8 border border-obsidian-500">
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            <!-- Left Company Story, Patents & ESG Metrics (7 cols) -->
+            <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between">
+              <div>
+                <div class="flex flex-wrap items-center gap-2 mb-3">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amberwarm-500/15 border border-amberwarm-500/35 text-amberwarm-300 text-xs font-bold">
+                    <i data-lucide="building-2" class="w-3.5 h-3.5"></i>
+                    <span>新日興股份有限公司 SZS Co., Ltd. (TWSE: 3376)</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-obsidian-800 border border-obsidian-600 text-honey-400 text-[11px] font-bold">
+                    60 週年品牌里程碑
+                  </span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-editorial font-black text-ivory-100 tracking-tight leading-tight">
+                  群策群力、展望全球、企業永續<br class="hidden sm:inline" />
+                  <span class="text-amberwarm-400 text-xl sm:text-2xl font-sans font-bold tracking-normal">Coming Together To Innovate Better</span>
+                </h2>
+                <p class="text-xs sm:text-sm text-ivory-200 mt-3.5 leading-relaxed">
+                  新日興創立至今邁入 60 週年，自 1990 年代起深耕筆記型電腦 Hinge 轉軸研發製造，現已成為全球消費性電子、摺疊裝置與 AI 伺服器精密機構件領導夥伴。憑藉橫跨<strong>模具設計、MIM 金屬射出、精密沖壓、CNC 車銑、彈簧成型至自動化組裝</strong>的垂直上下整合製程，為全球一線品牌提供一站式客製化研發服務。
+                </p>
+              </div>
+
+              <!-- Key SZS Corporate & R&D Metrics -->
+              <div class="grid grid-cols-3 gap-3 mt-6 pt-5 border-t border-obsidian-600">
+                <div class="p-3 rounded-2xl bg-obsidian-950/90 border border-obsidian-600">
+                  <span class="text-xl sm:text-2xl font-extrabold text-amberwarm-400 block">1,286 件</span>
+                  <span class="text-[11px] font-semibold text-ivory-300">全球累積專利認證</span>
+                </div>
+                <div class="p-3 rounded-2xl bg-obsidian-950/90 border border-obsidian-600">
+                  <span class="text-xl sm:text-2xl font-extrabold text-honey-400 block">8 大製程</span>
+                  <span class="text-[11px] font-semibold text-ivory-300">垂直上下整合產線</span>
+                </div>
+                <div class="p-3 rounded-2xl bg-obsidian-950/90 border border-obsidian-600">
+                  <span class="text-xl sm:text-2xl font-extrabold text-sage-500 block">TCSA 銀級</span>
+                  <span class="text-[11px] font-semibold text-ivory-300">ISO 9001 / 14001 認證</span>
+                </div>
+              </div>
+
+              <!-- Expandable ESG & Global Manufacturing Footprint Drawer -->
+              <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
+                <button type="button" onclick="toggleCompanyStory()" class="inline-flex items-center gap-1.5 text-xs font-bold text-amberwarm-400 hover:text-amberwarm-300 transition cursor-pointer">
+                  <i id="company-story-icon" data-lucide="chevron-down" class="w-4 h-4 transition-transform"></i>
+                  <span id="company-story-btn-text">檢視 ESG 永續成就與全球生產營運據點</span>
+                </button>
+                <a href="https://www.szs-group.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-ivory-200 hover:text-amberwarm-300 transition">
+                  <i data-lucide="globe" class="w-3.5 h-3.5 text-amberwarm-400"></i>
+                  <span>前往新日興官方網站 (szs-group.com)</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+              </div>
+
+              <div id="company-story-drawer" class="hidden mt-3 p-4 rounded-2xl bg-obsidian-950 border border-obsidian-600 text-xs text-ivory-200 space-y-3">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <div class="p-3 rounded-xl bg-obsidian-900 border border-obsidian-700">
+                    <span class="font-extrabold text-sage-500 flex items-center gap-1.5 mb-1">
+                      <i data-lucide="leaf" class="w-3.5 h-3.5"></i>
+                      ESG 企業永續與智能製造實績
+                    </span>
+                    <ul class="text-ivory-300 space-y-1 leading-relaxed list-disc list-inside">
+                      <li>榮獲 <strong class="text-ivory-100">TCSA 台灣企業永續獎銀級獎</strong></li>
+                      <li>入選 <strong class="text-ivory-100">外資精選台灣百強 (Taiwan FINI 100)</strong></li>
+                      <li>台灣廠區建置太陽能板自發自用，推動低碳製程</li>
+                      <li>蘇州欣日興獲頒省級智能製造示範工廠認證</li>
+                    </ul>
+                  </div>
+                  <div class="p-3 rounded-xl bg-obsidian-900 border border-obsidian-700">
+                    <span class="font-extrabold text-amberwarm-400 flex items-center gap-1.5 mb-1">
+                      <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+                      全球研發與精密製造營運據點
+                    </span>
+                    <ul class="text-ivory-300 space-y-1 leading-relaxed list-disc list-inside">
+                      <li><strong class="text-ivory-100">台灣新北樹林總部</strong>：俊英廠、三俊廠（集團研發與核心試產中心）</li>
+                      <li><strong class="text-ivory-100">中國生產基地</strong>：蘇州欣日興、福建福清、上海等智能製造園區</li>
+                      <li><strong class="text-ivory-100">東南亞新基地</strong>：越南北江廠（強化全球供應鏈韌性與產能佈局）</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Real Precision Manufacturing & CNC Engineering Photo (5 cols) -->
+            <div class="lg:col-span-5 relative min-h-[260px] lg:min-h-full bg-obsidian-900 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1000&q=85"
+                alt="新日興 SZS 精密 CNC 加工與自動化產線"
+                onload="this.classList.add('loaded')"
+                onerror="handleImgError(this, 'cnc')"
+                class="tech-photo w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/30 to-transparent"></div>
+              <div class="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-obsidian-950/85 backdrop-blur-sm border border-white/15 text-[11px] font-bold text-ivory-100 flex items-center gap-1.5">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-sage-500"></i>
+                <span>ISO 9001・ISO 14001 品質認證</span>
+              </div>
+              <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-obsidian-950/90 backdrop-blur-md border border-obsidian-600">
+                <div class="flex items-center justify-between text-xs mb-1">
+                  <span class="font-bold text-amberwarm-400">垂直上下整合精密製造力</span>
+                  <span class="text-ivory-300 font-semibold">台灣・蘇州・越南</span>
+                </div>
+                <p class="text-[11px] text-ivory-200 leading-relaxed">
+                  從微米級金屬射出（MIM）、高速沖壓、多軸車銑到扭力壽命測試實驗室，全製程自主掌控交期與公差精度。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section Header + Search & Quick Action -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amberwarm-500/15 border border-amberwarm-500/30 text-amberwarm-300 text-xs font-bold mb-2">
+              <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+              <span>PRODUCTS & PROCESSES・新日興官方產品與精密製程專區</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-editorial font-black text-ivory-100 tracking-tight">
+              新日興 8 大核心產品線與精密製程
+            </h3>
+            <p class="text-xs sm:text-sm text-ivory-300 mt-1">
+              點擊任一產品線檢視詳細製程規格與子模組參數，或加入「規格比對工作台」進行工程並排評估。
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <button onclick="switchTab('compare')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-obsidian-800 border border-obsidian-600 text-ivory-100 text-xs sm:text-sm font-bold shadow-bento hover:border-amberwarm-500/50 hover:text-amberwarm-300 transition active:scale-95">
+              <i data-lucide="columns-3" class="w-4 h-4 text-amberwarm-400"></i>
+              <span>規格比對工作台</span>
+            </button>
+            <button onclick="switchTab('support')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-amberwarm-500 text-white text-xs sm:text-sm font-bold shadow-md shadow-amberwarm-500/20 hover:bg-amberwarm-600 transition active:scale-95">
+              <i data-lucide="headset" class="w-4 h-4"></i>
+              <span>業務與技術諮詢</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Search & Filter Bar -->
+        <div class="bento-card p-4 sm:p-5 mb-6">
+          <div class="flex flex-col sm:flex-row gap-3">
+            <!-- Search Input -->
+            <div class="relative flex-1">
+              <i data-lucide="search" class="w-4 h-4 text-ivory-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
+              <input
+                id="search-input"
+                type="text"
+                placeholder="搜尋官方產品線或製程（例：筆電樞紐、顯示器、TWS耳機、摺疊裝置、MIM、車銑、沖壓、彈簧）..."
+                oninput="handleSearchInput(this.value)"
+                class="w-full pl-11 pr-10 py-3 rounded-xl bg-obsidian-950 border border-obsidian-600 text-sm text-ivory-100 placeholder:text-ivory-400 focus:outline-none focus:border-amberwarm-500 focus:ring-2 focus:ring-amberwarm-500/20 transition"
+              />
+              <button id="clear-search-btn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-ivory-400 hover:text-ivory-100 p-1">
+                <i data-lucide="x" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+            <!-- Quick Favorites Toggle -->
+            <button
+              id="quick-fav-filter-btn"
+              onclick="toggleProductsOnlyFav()"
+              class="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-obsidian-600 bg-obsidian-850 text-xs sm:text-sm font-bold text-ivory-200 hover:border-amberwarm-500/50 transition shrink-0"
+            >
+              <i data-lucide="bookmark" class="w-4 h-4"></i>
+              <span>只看收藏規格</span>
+            </button>
+          </div>
+
+          <!-- Category Filter Pills -->
+          <div id="category-pills" class="flex items-center gap-2 overflow-x-auto no-scrollbar pt-3.5 mt-3.5 border-t border-obsidian-600">
+            <!-- Dynamically rendered -->
+          </div>
+        </div>
+
+        <!-- Product Lines Grid -->
+        <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+          <!-- Dynamically rendered -->
+        </div>
+
+        <!-- Empty Search State -->
+        <div id="products-empty" class="hidden bento-card p-12 text-center">
+          <div class="w-16 h-16 rounded-3xl bg-obsidian-850 border border-obsidian-600 text-amberwarm-400 flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="search-x" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-lg font-editorial font-bold text-ivory-100 mb-1">找不到符合條件的產品或製程</h3>
+          <p class="text-sm text-ivory-300 mb-5">試試調整關鍵字（如「樞紐」、「MIM」、「液冷」），或切換其他應用分類。</p>
+          <button onclick="resetFilters()" class="px-5 py-2.5 rounded-xl bg-amberwarm-500 text-white text-sm font-bold hover:bg-amberwarm-600 transition">
+            顯示全部產品線
+          </button>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           MODULE 1B: 產品線詳情頁 (PRODUCT LINE DETAIL VIEW)
+      ====================================================================== -->
+      <section id="view-detail" class="hidden view-section view-animate">
+        <div id="detail-content">
+          <!-- Dynamically rendered -->
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           MODULE 2: 規格比對與 BOM 選型工作台 (SPEC COMPARISON & BOM WORKBENCH)
+      ====================================================================== -->
+      <section id="view-compare" class="hidden view-section view-animate">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amberwarm-500/15 border border-amberwarm-500/30 text-amberwarm-300 text-xs font-bold mb-2">
+              <i data-lucide="columns-3" class="w-3.5 h-3.5"></i>
+              <span>SPEC COMPARISON & BOM WORKBENCH</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-editorial font-black text-ivory-100 tracking-tight">
+              工程規格比對與 BOM 選型工作台
+            </h2>
+            <p class="text-xs sm:text-sm text-ivory-300 mt-1">
+              勾選 2 至 4 項新日興產品線，並排比對製程工藝、壽命標準、公差精度與打樣週期，支援一鍵匯出 CSV 規格總表。
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2.5">
+            <button onclick="exportComparisonCSV()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-obsidian-800 border border-obsidian-600 text-ivory-100 text-xs sm:text-sm font-bold hover:border-amberwarm-500/50 hover:text-amberwarm-300 transition active:scale-95">
+              <i data-lucide="download" class="w-4 h-4 text-amberwarm-400"></i>
+              <span>匯出 CSV 規格表</span>
+            </button>
+            <button onclick="sendComparedToSupport()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-amberwarm-500 text-white text-xs sm:text-sm font-bold shadow-md shadow-amberwarm-500/20 hover:bg-amberwarm-600 transition active:scale-95">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>帶入批次技術諮詢</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Line Selector Chips for Comparison -->
+        <div class="bento-card p-5 mb-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-extrabold text-ivory-200 flex items-center gap-1.5">
+              <i data-lucide="sliders-horizontal" class="w-4 h-4 text-amberwarm-400"></i>
+              <span>選擇要納入比對的產品線（目前選取 <strong id="compare-selected-label" class="text-amberwarm-400">3</strong> / 4 項）</span>
+            </span>
+            <button onclick="resetDefaultComparison()" class="text-xs font-bold text-amberwarm-400 hover:underline">
+              恢復預設推薦組合
+            </button>
+          </div>
+          <div id="compare-selector-pills" class="flex flex-wrap gap-2">
+            <!-- Dynamically rendered -->
+          </div>
+        </div>
+
+        <!-- Side-by-Side Comparison Matrix -->
+        <div id="compare-matrix-container" class="bento-card overflow-hidden">
+          <!-- Dynamically rendered -->
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           MODULE 3: 智能選型轉盤 (SMART PRODUCT SELECTOR WHEEL)
+      ====================================================================== -->
+      <section id="view-wheel" class="hidden view-section view-animate">
+        <div class="mb-6">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amberwarm-500/15 border border-amberwarm-500/30 text-amberwarm-300 text-xs font-bold mb-2">
+            <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+            <span>SMART SOLUTION SELECTOR</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-editorial font-black text-ivory-100 tracking-tight">
+            新日興智能選型與解決方案轉盤
+          </h2>
+          <p class="text-xs sm:text-sm text-ivory-300 mt-1">
+            針對新專案開發或機構評估，勾選候選產品線或一鍵抽取推薦方案，快速檢視製程優勢與打樣交期。
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- Left / Top: Interactive Wheel Stage -->
+          <div class="lg:col-span-7 bento-card p-6 sm:p-8 flex flex-col items-center relative overflow-hidden">
+            <!-- Subtle decorative ambient glow -->
+            <div class="absolute -top-20 -right-20 w-56 h-56 rounded-full bg-amberwarm-500/10 blur-2xl pointer-events-none"></div>
+            <div class="absolute -bottom-20 -left-20 w-56 h-56 rounded-full bg-honey-500/10 blur-2xl pointer-events-none"></div>
+
+            <!-- Filter Mode Switch -->
+            <div class="flex items-center gap-2 bg-obsidian-950 border border-obsidian-600 p-1.5 rounded-2xl mb-6 z-10">
+              <button id="wheel-mode-all" onclick="setWheelOnlyFav(false)" class="px-4 py-2 rounded-xl text-xs font-bold transition">
+                自訂勾選產品線 (<span id="wheel-selected-count">8</span>)
+              </button>
+              <button id="wheel-mode-fav" onclick="setWheelOnlyFav(true)" class="px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5">
+                <i data-lucide="bookmark-check" class="w-3.5 h-3.5"></i>
+                <span>僅抽收藏規格 (<span id="wheel-fav-count">1</span>)</span>
+              </button>
+            </div>
+
+            <!-- Canvas Wheel Wrapper -->
+            <div class="relative w-full max-w-[360px] sm:max-w-[400px] aspect-square flex items-center justify-center my-2">
+              <!-- Top Pointer -->
+              <div id="wheel-pointer" class="absolute -top-3 left-1/2 -translate-x-1/2 z-20 drop-shadow-md">
+                <svg width="36" height="42" viewBox="0 0 36 42" fill="none">
+                  <path d="M18 42L3.5 14C1.2 9.5 4.4 4 9.5 4H26.5C31.6 4 34.8 9.5 32.5 14L18 42Z" fill="#E87A35" stroke="#1C1917" stroke-width="3"/>
+                  <circle cx="18" cy="13" r="4" fill="#F5F0EB"/>
+                </svg>
+              </div>
+
+              <!-- Outer Rim Shadow -->
+              <div class="w-full h-full rounded-full p-2.5 bg-gradient-to-b from-obsidian-700 to-obsidian-950 shadow-editorial border border-obsidian-500 flex items-center justify-center">
+                <canvas id="wheel-canvas" class="w-full h-full rounded-full"></canvas>
+              </div>
+
+              <!-- Center Spin Button -->
+              <button
+                id="spin-btn"
+                onclick="spinWheel()"
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-amberwarm-500 to-amberwarm-600 text-white font-editorial font-black text-base sm:text-lg shadow-xl shadow-black/60 border-4 border-obsidian-800 hover:scale-105 active:scale-95 transition flex flex-col items-center justify-center z-10 cursor-pointer"
+              >
+                <span>選型</span>
+                <span class="text-[10px] font-sans font-semibold tracking-wider opacity-90">SPIN</span>
+              </button>
+            </div>
+
+            <!-- Spin Action Hint -->
+            <p id="wheel-status-text" class="text-xs text-ivory-300 mt-4 font-medium text-center">
+              點擊中央「選型」按鈕，隨機評估推薦的精密製造解決方案！
+            </p>
+          </div>
+
+          <!-- Right / Bottom: Result Card + Candidate Checklist -->
+          <div class="lg:col-span-5 space-y-5">
+            <!-- Result Highlight Card -->
+            <div id="wheel-result-card" class="bento-card p-6 border-2 border-amberwarm-500/35 bg-gradient-to-br from-obsidian-800 to-obsidian-850">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-amberwarm-400 flex items-center gap-1.5">
+                  <i data-lucide="sparkles" class="w-4 h-4"></i>
+                  推薦產品與製程方案
+                </span>
+                <span id="wheel-result-badge" class="hidden text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-sage-500 text-white">已鎖定方案</span>
+              </div>
+
+              <div id="wheel-result-placeholder" class="py-6 text-center">
+                <div class="w-12 h-12 rounded-2xl bg-amberwarm-500/15 border border-amberwarm-500/30 text-amberwarm-400 flex items-center justify-center mx-auto mb-3">
+                  <i data-lucide="cpu" class="w-6 h-6"></i>
+                </div>
+                <p class="text-sm font-bold text-ivory-200">尚未進行方案抽取</p>
+                <p class="text-xs text-ivory-400 mt-1">按下轉盤中央按鈕，立即探索最適合的精密機構方案</p>
+              </div>
+
+              <div id="wheel-result-content" class="hidden">
+                <!-- Populated dynamically after spin -->
+              </div>
+            </div>
+
+            <!-- Candidate Selection Checklist -->
+            <div class="bento-card p-5">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-sm font-extrabold text-ivory-100 flex items-center gap-2">
+                  <i data-lucide="check-square" class="w-4 h-4 text-amberwarm-400"></i>
+                  <span>轉盤候選產品線清單</span>
+                </h3>
+                <div class="flex items-center gap-2 text-xs font-bold">
+                  <button onclick="selectAllWheelCandidates(true)" class="text-amberwarm-400 hover:underline">全選</button>
+                  <span class="text-ivory-400">|</span>
+                  <button onclick="selectAllWheelCandidates(false)" class="text-ivory-300 hover:underline">清空</button>
+                </div>
+              </div>
+              <div id="wheel-checklist" class="max-h-64 overflow-y-auto pr-1 space-y-1.5">
+                <!-- Dynamically rendered -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           MODULE 4: 採購收藏清單 (SAVED SPEC SHEET)
+      ====================================================================== -->
+      <section id="view-favorites" class="hidden view-section view-animate">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amberwarm-500/15 border border-amberwarm-500/30 text-amberwarm-300 text-xs font-bold mb-2">
+              <i data-lucide="bookmark-check" class="w-3.5 h-3.5"></i>
+              <span>SAVED SPEC SHORTLIST</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-editorial font-black text-ivory-100 tracking-tight">
+              採購與研發收藏規格清單
+            </h2>
+            <p class="text-xs sm:text-sm text-ivory-300 mt-1">
+              彙整您重點關注的新日興樞紐與精密製程產品線，可一鍵帶入「客服與技術支援」索取正式規格書或樣品評估。
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2.5 self-start sm:self-auto">
+            <button onclick="sendFavoritesToSupport()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-amberwarm-500 text-white text-xs sm:text-sm font-bold shadow-md shadow-amberwarm-500/20 hover:bg-amberwarm-600 transition active:scale-95">
+              <i data-lucide="headset" class="w-4 h-4"></i>
+              <span>一鍵打包索取樣品與報價</span>
+            </button>
+            <button onclick="spinFromFavorites()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-obsidian-800 border border-obsidian-600 text-ivory-100 text-xs sm:text-sm font-bold hover:border-amberwarm-500/50 transition active:scale-95">
+              <i data-lucide="compass" class="w-4 h-4 text-amberwarm-400"></i>
+              <span>啟動收藏轉盤</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="favorites-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+          <!-- Dynamically rendered -->
+        </div>
+
+        <div id="favorites-empty" class="hidden bento-card p-12 text-center">
+          <div class="w-16 h-16 rounded-3xl bg-amberwarm-500/15 border border-amberwarm-500/30 text-amberwarm-400 flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="bookmark" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-lg font-editorial font-bold text-ivory-100 mb-1">尚未收藏任何產品線規格</h3>
+          <p class="text-sm text-ivory-300 mb-5">在產品專區點擊右上角「書籤圖示」，即可將筆電樞紐、MIM 或精密車銑加入採購評估清單！</p>
+          <button onclick="switchTab('products')" class="px-5 py-2.5 rounded-xl bg-amberwarm-500 text-white text-sm font-bold hover:bg-amberwarm-600 transition">
+            探索新日興產品線
+          </button>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           MODULE 5: 客戶服務與技術支援 (CUSTOMER SERVICE & TECHNICAL SUPPORT)
+      ====================================================================== -->
+      <section id="view-support" class="hidden view-section view-animate">
+        <div class="mb-6">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amberwarm-500/15 border border-amberwarm-500/30 text-amberwarm-300 text-xs font-bold mb-2">
+            <i data-lucide="headset" class="w-3.5 h-3.5"></i>
+            <span>CUSTOMER SERVICE & ENGINEERING RFQ</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-editorial font-black text-ivory-100 tracking-tight">
+            客戶服務與工程技術支援中心
+          </h2>
+          <p class="text-xs sm:text-sm text-ivory-300 mt-1">
+            提供 OEM/ODM 專案開發詢價、3D CAD/STEP 圖面評估、打樣申請、品質認證（ISO 9001 / 14001）與 ESG 稽核窗口聯繫。
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- Left: Corporate B2B RFQ & Technical Support Form (7 cols) -->
+          <div class="lg:col-span-7 bento-card p-6 sm:p-8">
+            <div class="flex items-center justify-between mb-5">
+              <h3 class="text-lg font-editorial font-bold text-ivory-100 flex items-center gap-2">
+                <i data-lucide="file-signature" class="w-5 h-5 text-amberwarm-400"></i>
+                <span>線上業務與工程諮詢表單 (RFQ / Technical Inquiry)</span>
+              </h3>
+              <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-sage-500/15 border border-sage-500/30 text-sage-500">
+                24 小時內專人回覆
+              </span>
+            </div>
+
+            <form id="support-form" onsubmit="submitSupportTicket(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-ivory-200 mb-1.5">公司 / 單位名稱 *</label>
+                  <input id="sup-company" type="text" required placeholder="例：宏碁 / 廣達 / 華碩系統研發部" class="w-full px-3.5 py-3 rounded-xl bg-obsidian-950 border border-obsidian-600 text-sm text-ivory-100 placeholder:text-ivory-400 focus:outline-none focus:border-amberwarm-500" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-ivory-200 mb-1.5">聯絡人姓名與職稱 *</label>
+                  <input id="sup-contact" type="text" required placeholder="例：陳志明 資深機構工程師" class="w-full px-3.5 py-3 rounded-xl bg-obsidian-950 border border-obsidian-600 text-sm text-ivory-100 placeholder:text-ivory-400 focus:outline-none focus:border-amberwarm-500" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-ivory-200 mb-1.5">企業電子信箱 (Corporate Email) *</label>
+                  <input id="sup-email" type="email" required placeholder="name@company.com" class="w-full px-3.5 py-3 rounded-xl bg-obsidian-950 border border-obsidian-600 text-sm text-ivory-100 placeholder:text-ivory-400 focus:outline-none focus:border-amberwarm-500" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-ivory-200 mb-1.5">諮詢服務類別 *</label>
+                  <select id="sup-type" class="w-full px-3.5 py-3 rounded-xl bg-obsidian-950 border border-obsidian-600 text-sm text-ivory-100 focus:outline-none focus:border-amberwarm-500">
+                    <option value="OEM/ODM 新專案開發詢價">OEM/ODM 新專案開發詢價</option>
+                    <option value="樣品申請 (Sample Request)">樣品申請 (Sample Request)</option>
+                    <option value="規格書與專利技術諮詢">規格書與專利技術諮詢</option>
+                    <option value="品質認證 / ESG 供應商稽核">品質認證 / ESG 供應商稽核</option>
+                    <option value="量產交期與售後技術支援">量產交期與售後技術支援</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-ivory-200 mb-1.5">目標產品線 *</label>
+                  <select id="sup-product" class="w-full px-3.5 py-3 rounded-xl bg-obsidian-950 border border-obsidian-600 text-sm text-ivory-100 focus:outline-none focus:border-amberwarm-500">
+                    <!-- Populated dynamically -->
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-ivory-200 mb-1.5">預估年需求量 / 開發時程</label>
+                  <input id="sup-volume" type="text" placeholder="例：年需求 500K pcs / Q3 進入 EVT" class="w-full px-3.5 py-3 rounded-xl bg-obsidian-950 border border-obsidian-600 text-sm text-ivory-100 placeholder:text-ivory-400 focus:outline-none focus:border-amberwarm-500" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-ivory-200 mb-1.5">技術規格需求 / 諮詢內容說明 *</label>
+                <textarea id="sup-message" rows="4" required placeholder="請描述應用終端機型、扭力範圍需求、開合壽命標準（如 30,000 次）、材質偏好（SUS316L / 鈦合金）或 NDA 圖面交換需求..." class="w-full px-3.5 py-3 rounded-xl bg-obsidian-950 border border-obsidian-600 text-sm text-ivory-100 placeholder:text-ivory-400 focus:outline-none focus:border-amberwarm-500"></textarea>
+              </div>
+
+              <div class="pt-1 flex flex-col sm:flex-row gap-3">
+                <button type="submit" class="flex-1 py-3.5 rounded-xl bg-amberwarm-500 text-white text-sm font-bold shadow-md shadow-amberwarm-500/20 hover:bg-amberwarm-600 transition active:scale-[0.99] flex items-center justify-center gap-2">
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                  <span>送出業務與技術諮詢單</span>
+                </button>
+                <a href="https://www.szs-group.com/" target="_blank" rel="noopener noreferrer" class="py-3.5 px-5 rounded-xl bg-obsidian-800 border border-obsidian-600 text-ivory-200 text-sm font-bold hover:border-amberwarm-500/50 transition flex items-center justify-center gap-2">
+                  <i data-lucide="globe" class="w-4 h-4 text-amberwarm-400"></i>
+                  <span>官方網站聯絡頁</span>
+                </a>
+              </div>
+            </form>
+
+            <!-- Submitted Service Tickets Tracker -->
+            <div class="mt-8 pt-6 border-t border-obsidian-600">
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="text-sm font-extrabold text-ivory-100 flex items-center gap-2">
+                  <i data-lucide="ticket" class="w-4 h-4 text-amberwarm-400"></i>
+                  <span>我的諮詢案件追蹤紀錄</span>
+                </h4>
+                <span id="ticket-total-badge" class="text-xs font-bold text-ivory-300">共 1 筆案件</span>
+              </div>
+              <div id="support-tickets-list" class="space-y-2.5">
+                <!-- Dynamically rendered -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Global Service Hubs & Interactive Engineering FAQ (5 cols) -->
+          <div class="lg:col-span-5 space-y-5">
+            <!-- Global Service Locations -->
+            <div class="bento-card p-6 bg-gradient-to-br from-obsidian-800 to-obsidian-850">
+              <h3 class="text-base font-editorial font-bold text-ivory-100 mb-3.5 flex items-center gap-2">
+                <i data-lucide="globe-2" class="w-4 h-4 text-amberwarm-400"></i>
+                <span>新日興全球營運與客戶服務據點</span>
+              </h3>
+
+              <div class="space-y-3 text-xs">
+                <div class="p-3.5 rounded-2xl bg-obsidian-950 border border-obsidian-600">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-extrabold text-amberwarm-400">台灣樹林總部・研發與業務中心</span>
+                    <span class="px-2 py-0.5 rounded bg-amberwarm-500/15 text-amberwarm-300 text-[10px] font-bold">HQ</span>
+                  </div>
+                  <p class="text-ivory-200">新北市樹林區俊英街 174 號（俊英廠 / 三俊廠）</p>
+                  <p class="text-ivory-400 mt-1">服務時間：週一至週五 08:30 – 17:30 (GMT+8)</p>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-obsidian-950 border border-obsidian-600">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-extrabold text-ivory-100">中國華東營運中心・蘇州欣日興</span>
+                    <span class="px-2 py-0.5 rounded bg-obsidian-800 text-ivory-300 text-[10px] font-bold">智能製造示範</span>
+                  </div>
+                  <p class="text-ivory-300">江蘇省蘇州市吳中區・自動化樞紐與 MIM 量產基地</p>
+                </div>
+
+                <div class="p-3.5 rounded-2xl bg-obsidian-950 border border-obsidian-600">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-extrabold text-ivory-100">東南亞生產基地・越南北江廠</span>
+                    <span class="px-2 py-0.5 rounded bg-sage-500/15 text-sage-500 text-[10px] font-bold">全球供應鏈</span>
+                  </div>
+                  <p class="text-ivory-300">越南北江省・提供客戶跨區域彈性組裝與穩定交貨</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Engineering & Procurement FAQ -->
+            <div class="bento-card p-6">
+              <h3 class="text-base font-editorial font-bold text-ivory-100 mb-3.5 flex items-center gap-2">
+                <i data-lucide="help-circle" class="w-4 h-4 text-amberwarm-400"></i>
+                <span>常見合作與工程技術問答 (FAQ)</span>
+              </h3>
+              <div class="space-y-2.5" id="faq-accordion">
+                <!-- Dynamically rendered -->
+              </div>
+            </div>
+
+            <!-- Reset Utility -->
+            <div class="bento-card p-5 border border-obsidian-600">
+              <div class="flex items-center justify-between gap-3">
+                <div>
+                  <h4 class="text-xs font-extrabold text-ivory-200">展示資料重置</h4>
+                  <p class="text-[11px] text-ivory-400 mt-0.5">恢復為新日興官方 8 大產品線預設狀態</p>
+                </div>
+                <button onclick="resetAllDefaultData()" class="py-2 px-3.5 rounded-xl border border-obsidian-500 bg-obsidian-850 text-xs font-bold text-ivory-200 hover:bg-red-950/50 hover:text-red-300 hover:border-red-500/40 transition flex items-center gap-1.5 shrink-0">
+                  <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                  <span>重置資料</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==================== MOBILE BOTTOM NAVIGATION BAR ==================== -->
+  <nav class="lg:hidden fixed bottom-0 inset-x-0 z-30 bg-obsidian-850/95 backdrop-blur-md border-t border-obsidian-600 px-2 py-1.5 flex items-center justify-around">
+    <button data-tab="products" onclick="switchTab('products')" class="mobile-nav-btn flex flex-col items-center justify-center py-1.5 px-2.5 rounded-xl text-[11px] font-bold transition">
+      <i data-lucide="building-2" class="w-5 h-5 mb-0.5"></i>
+      <span>公司與產品</span>
+    </button>
+    <button data-tab="compare" onclick="switchTab('compare')" class="mobile-nav-btn flex flex-col items-center justify-center py-1.5 px-2.5 rounded-xl text-[11px] font-bold transition">
+      <i data-lucide="columns-3" class="w-5 h-5 mb-0.5"></i>
+      <span>規格比對</span>
+    </button>
+    <button data-tab="wheel" onclick="switchTab('wheel')" class="mobile-nav-btn flex flex-col items-center justify-center py-1.5 px-2.5 rounded-xl text-[11px] font-bold transition">
+      <i data-lucide="compass" class="w-5 h-5 mb-0.5"></i>
+      <span>選型轉盤</span>
+    </button>
+    <button data-tab="favorites" onclick="switchTab('favorites')" class="mobile-nav-btn relative flex flex-col items-center justify-center py-1.5 px-2.5 rounded-xl text-[11px] font-bold transition">
+      <i data-lucide="bookmark-check" class="w-5 h-5 mb-0.5"></i>
+      <span>收藏規格</span>
+      <span id="mobile-fav-dot" class="hidden absolute top-1 right-2 w-2 h-2 rounded-full bg-amberwarm-500"></span>
+    </button>
+    <button data-tab="support" onclick="switchTab('support')" class="mobile-nav-btn flex flex-col items-center justify-center py-1.5 px-2.5 rounded-xl text-[11px] font-bold transition">
+      <i data-lucide="headset" class="w-5 h-5 mb-0.5"></i>
+      <span>客服支援</span>
+    </button>
+  </nav>
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div id="toast-container" class="fixed bottom-20 lg:bottom-7 right-4 sm:right-7 z-50 pointer-events-none flex flex-col gap-2"></div>
+
+  <!-- ==================== JAVASCRIPT APPLICATION LOGIC ==================== -->
+  <script>
+    // -------------------------------------------------------------------------
+    // 1. REAL SZS-DOMAIN PHOTOGRAPHY (3C DEVICES, HINGES, CNC, MIM, SPRINGS)
+    //    STRICTLY ZERO AUTOMOTIVE / CAR CONTENT
+    // -------------------------------------------------------------------------
+    const REAL_PHOTOS = {
+      // 1. 筆記型電腦樞紐 (NB Hinges)
+      hingeMain: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1000&q=85',
+      hinge1: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=80',
+      hinge2: 'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=800&q=80',
+      hinge3: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=800&q=80',
+      hinge4: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=800&q=80',
+
+      // 2. 液晶顯示器樞紐 (LCD Monitor Hinges)
+      monitorMain: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=1000&q=85',
+      monitor1: 'https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=800&q=80',
+      monitor2: 'https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?auto=format&fit=crop&w=800&q=80',
+      monitor3: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
+
+      // 3. 穿戴及配件類樞紐 (Audio & Wearable Hinges)
+      wearableMain: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=1000&q=85',
+      wearable1: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80',
+      wearable2: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=800&q=80',
+      wearable3: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80',
+
+      // 4. 平板與摺疊裝置樞紐 (Tablet & Foldable Hinges)
+      foldableMain: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=1000&q=85',
+      foldable1: 'https://images.unsplash.com/photo-1586210579191-33b45e38fa2c?auto=format&fit=crop&w=800&q=80',
+      foldable2: 'https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&w=800&q=80',
+      foldable3: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?auto=format&fit=crop&w=800&q=80',
+
+      // 5. 金屬射出成形 (Metal Injection Molding, MIM)
+      mimMain: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=85',
+      mim1: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=800&q=80',
+      mim2: 'https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=800&q=80',
+      mim3: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80',
+
+      // 6. 精密車銑製件 (CNC Lathes)
+      cncMain: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1000&q=85',
+      cnc1: 'https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=800&q=80',
+      cnc2: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+      cnc3: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+
+      // 7. 精密沖壓製件 (Stamping)
+      stampingMain: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1000&q=85',
+      stamping1: 'https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=800&q=80',
+      stamping2: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+      stamping3: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80',
+
+      // 8. 精密彈簧製件 (Springs)
+      springMain: 'https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1000&q=85',
+      spring1: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80',
+      spring2: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+      spring3: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=800&q=80',
+    };
+
+    const REAL_FALLBACKS = {
+      hinge: REAL_PHOTOS.hingeMain,
+      monitor: REAL_PHOTOS.monitorMain,
+      wearable: REAL_PHOTOS.wearableMain,
+      foldable: REAL_PHOTOS.foldableMain,
+      mim: REAL_PHOTOS.mimMain,
+      cnc: REAL_PHOTOS.cncMain,
+      stamping: REAL_PHOTOS.stampingMain,
+      spring: REAL_PHOTOS.springMain,
+      default: REAL_PHOTOS.cncMain,
+    };
+
+    function getBlueprintFallbackSVG(label = 'SZS PRECISION') {
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+        <rect width="800" height="500" fill="#171412"/>
+        <g stroke="#2E2925" stroke-width="1">
+          <line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/>
+          <line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/>
+          <line x1="200" y1="0" x2="200" y2="500"/><line x1="400" y1="0" x2="400" y2="500"/><line x1="600" y1="0" x2="600" y2="500"/>
+        </g>
+        <circle cx="400" cy="240" r="85" fill="none" stroke="#E87A35" stroke-width="3" stroke-dasharray="10 6"/>
+        <circle cx="400" cy="240" r="42" fill="none" stroke="#F5B041" stroke-width="2"/>
+        <line x1="270" y1="240" x2="530" y2="240" stroke="#968B80" stroke-width="1.5"/>
+        <line x1="400" y1="120" x2="400" y2="360" stroke="#968B80" stroke-width="1.5"/>
+        <text x="400" y="395" fill="#F5F0EB" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">${label}</text>
+        <text x="400" y="422" fill="#E87A35" font-family="monospace" font-size="12" text-anchor="middle">SHIN ZU SHING CO., LTD.・TWSE: 3376</text>
+      </svg>`;
+      return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+    }
+
+    function handleImgError(imgEl, typeKey = 'default') {
+      if (imgEl.dataset.fallbackApplied === '2') return;
+      if (imgEl.dataset.fallbackApplied === '1') {
+        imgEl.dataset.fallbackApplied = '2';
+        imgEl.src = getBlueprintFallbackSVG(imgEl.alt || 'SZS PRECISION COMPONENT');
+        imgEl.classList.add('loaded');
+        return;
+      }
+      imgEl.dataset.fallbackApplied = '1';
+      imgEl.src = REAL_FALLBACKS[typeKey] || REAL_FALLBACKS.default;
+      imgEl.classList.add('loaded');
+    }
+
+    // -------------------------------------------------------------------------
+    // 2. INITIAL DEFAULT DATABASE: SZS OFFICIAL 8 PRODUCT LINES (ZERO AUTO)
+    // -------------------------------------------------------------------------
+    const STORAGE_KEY = 'szs_official_portal_v2';
+
+    const DEFAULT_PRODUCTS = [
+      {
+        id: 'nb-hinges',
+        name: '筆記型電腦樞紐 (NB Hinges)',
+        category: '樞紐機構產品',
+        isFlagship: true,
+        rating: 4.9,
+        reviewCount: 46,
+        targetDevices: '超薄商務筆電、360°二合一翻轉筆電、電競筆電',
+        lifecycleSpec: '30,000 ~ 50,000 次開合壽命驗證',
+        materialsSpec: '高強度不鏽鋼 SUS304 / 合金鋼 / MIM 燒結件',
+        leadTime: '2-3 週快速打樣',
+        plantLocation: '新北樹林總部・蘇州欣日興・越南北江廠',
+        certStandard: 'ISO 9001 / ISO 14001・單手開蓋扭力動態平衡',
+        toleranceSpec: '扭力公差 ±10%・微米級阻尼控制',
+        officialUrl: 'https://www.szs-group.com/',
+        photoType: 'hinge',
+        image: REAL_PHOTOS.hingeMain,
+        gallery: [
+          { url: REAL_PHOTOS.hingeMain, caption: '筆記型電腦樞紐 (NB Hinges) 旗艦主力產品線' },
+          { url: REAL_PHOTOS.hinge1, caption: '超薄筆電內藏式一字軸 (Ultra-thin Inline Hinge)' },
+          { url: REAL_PHOTOS.hinge2, caption: '360° 翻轉多段式雙軸同步開闔機構' },
+          { url: REAL_PHOTOS.hinge4, caption: '電競與高效能筆電高負載支撐轉軸' }
+        ],
+        tags: ['全球市佔領先', '360°翻轉雙軸', '超薄內藏式', '單手開蓋平衡'],
+        description: '新日興核心旗艦產品線，累積逾千件全球轉軸專利。涵蓋超薄商務筆電內藏式一字軸、360° 翻轉多段式雙軸同步開闔機構及電競筆電高剛性轉軸，兼顧單手開蓋流暢手感與螢幕穩定支撐。',
+        modules: [
+          { name: '360° 翻轉多段式雙軸同步機構', specInfo: '雙軸齒輪精準同步', tolerance: '扭力 ±10%', image: REAL_PHOTOS.hinge2, badge: '二合一旗艦' },
+          { name: '超薄筆電內藏式一字軸模組', specInfo: '極致纖薄外徑設計', tolerance: '±0.015mm', image: REAL_PHOTOS.hinge1, badge: '專利結構' },
+          { name: '隱藏式下沉抬升散熱轉軸', specInfo: '開蓋自動微幅抬升鍵盤', tolerance: '3萬次壽命', image: REAL_PHOTOS.hingeMain, badge: '人體工學' },
+          { name: '電競筆電高阻尼抗震樞紐', specInfo: '大尺寸螢幕穩定懸停', tolerance: '5萬次驗證', image: REAL_PHOTOS.hinge4, badge: '高剛性' }
+        ]
+      },
+      {
+        id: 'lcd-monitor-hinges',
+        name: '液晶顯示器樞紐 (LCD Monitor Hinges)',
+        category: '樞紐機構產品',
+        isFlagship: false,
+        rating: 4.8,
+        reviewCount: 27,
+        targetDevices: '人體工學商用顯示器、電競曲面螢幕、AIO 一體機',
+        lifecycleSpec: '20,000 ~ 30,000 次升降與俯仰調節',
+        materialsSpec: '高強度冷軋鋼 SPCC / 恆力渦卷彈簧 / 鋅合金壓鑄',
+        leadTime: '2-3 週結構打樣',
+        plantLocation: '新北樹林總部・蘇州欣日興',
+        certStandard: 'ISO 9001 / ISO 14001・高承重全角度懸停測試',
+        toleranceSpec: '承重範圍 2kg ~ 18kg・全域零回彈懸停',
+        officialUrl: 'https://www.szs-group.com/',
+        photoType: 'monitor',
+        image: REAL_PHOTOS.monitorMain,
+        gallery: [
+          { url: REAL_PHOTOS.monitorMain, caption: '液晶顯示器人體工學升降旋轉支架樞紐' },
+          { url: REAL_PHOTOS.monitor1, caption: '電競曲面螢幕高承重多向調節轉軸' },
+          { url: REAL_PHOTOS.monitor2, caption: 'All-in-One 商用一體機超薄底座樞紐' }
+        ],
+        tags: ['升降旋轉支架', '電競曲面螢幕', '高承重轉軸', '恆力彈簧平衡'],
+        description: '專為專業繪圖顯示器、大尺寸電競曲面螢幕及 AIO 一體機設計的高承載樞紐，整合恆力彈簧平衡系統，提供垂直升降（HAS）、俯仰（Tilt）、左右旋轉（Swivel）與直橫螢幕切換的滑順手感。',
+        modules: [
+          { name: '人體工學升降旋轉支架樞紐', specInfo: '恆力彈簧配重平衡', tolerance: '承重達 18kg', image: REAL_PHOTOS.monitorMain, badge: '商用主力' },
+          { name: '電競曲面螢幕高承重轉軸', specInfo: '大曲率重心穩定鎖固', tolerance: '零晃動設計', image: REAL_PHOTOS.monitor1, badge: '電競專規' },
+          { name: '顯示器快拆卡榫與旋轉軸心', specInfo: '免工具 VESA 快裝結構', tolerance: '±0.02mm', image: REAL_PHOTOS.monitor2, badge: '模組化' },
+          { name: 'AIO 一體機隱藏走線多功能底座', specInfo: '中空軸心線材整合', tolerance: '2.5萬次調節', image: REAL_PHOTOS.monitor3, badge: '一體機' }
+        ]
+      },
+      {
+        id: 'wearable-hinges',
+        name: '穿戴及配件類樞紐 (Audio & Wearable Hinges)',
+        category: '樞紐機構產品',
+        isFlagship: false,
+        rating: 4.9,
+        reviewCount: 34,
+        targetDevices: '真無線藍牙耳機 (TWS) 充電盒、頭戴式耳機、智慧眼鏡',
+        lifecycleSpec: '50,000 ~ 100,000 次高頻開闔驗證',
+        materialsSpec: 'MIM 不鏽鋼 / 微型扭力彈簧 / 精密車銑軸心',
+        leadTime: '2-3 週快速打樣',
+        plantLocation: '新北樹林總部・蘇州・越南北江廠',
+        certStandard: '微型化高壽命阻尼・磁吸開合清脆段位手感',
+        toleranceSpec: '微米級組裝公差・極小空間高扭力密度',
+        officialUrl: 'https://www.szs-group.com/',
+        photoType: 'wearable',
+        image: REAL_PHOTOS.wearableMain,
+        gallery: [
+          { url: REAL_PHOTOS.wearableMain, caption: '真無線耳機充電盒微磁吸阻尼轉軸' },
+          { url: REAL_PHOTOS.wearable1, caption: '摺疊頭戴式耳機多向轉軸與伸縮機構' },
+          { url: REAL_PHOTOS.wearable2, caption: '智慧穿戴與鏡腳微型彈性樞紐' }
+        ],
+        tags: ['TWS充電盒轉軸', '微磁吸阻尼', '摺疊頭戴耳機', '微型化精工'],
+        description: '針對真無線耳機（TWS）充電盒、高階摺疊頭戴式耳機及智慧眼鏡等穿戴配件，打造極致微型化樞紐，兼顧清脆開闔段位感、防誤閉磁吸阻尼與精品級無縫外觀。',
+        modules: [
+          { name: '真無線耳機充電盒微磁吸阻尼轉軸', specInfo: '微型彈簧與凸輪結構', tolerance: '5萬次開闔', image: REAL_PHOTOS.wearableMain, badge: '暢銷主力' },
+          { name: '摺疊頭戴式耳機多向樞紐', specInfo: '折疊收納與耳罩貼合旋轉', tolerance: '零異音阻尼', image: REAL_PHOTOS.wearable1, badge: '聲學精品' },
+          { name: '智慧眼鏡與 AR 裝置鏡腳彈性樞紐', specInfo: '輕量化高疲勞壽命', tolerance: '±0.012mm', image: REAL_PHOTOS.wearable3, badge: '智慧穿戴' },
+          { name: '智慧手錶快拆彈簧栓與精密扣件', specInfo: 'SUS316L 抗汗水腐蝕', tolerance: '微米級公差', image: REAL_PHOTOS.wearable2, badge: '穿戴配件' }
+        ]
+      },
+      {
+        id: 'tablet-foldable-hinges',
+        name: '平板與摺疊裝置樞紐 (Tablet & Foldable Hinges)',
+        category: '樞紐機構產品',
+        isFlagship: false,
+        rating: 4.9,
+        reviewCount: 38,
+        targetDevices: '摺疊螢幕手機與筆電、平板無段懸停支架、懸浮鍵盤保護套',
+        lifecycleSpec: '100,000 ~ 200,000 次動態摺疊壽命',
+        materialsSpec: 'MIM 高強度不鏽鋼 / 鈦合金 / 精密多連桿組件',
+        leadTime: '3-4 週專利機構打樣',
+        plantLocation: '新北樹林研發中心・蘇州智能工廠',
+        certStandard: '水滴型容屏空間設計・無段懸停阻尼穩定測試',
+        toleranceSpec: '多軸連桿累積公差 <0.02mm・零摺痕支撐',
+        officialUrl: 'https://www.szs-group.com/',
+        photoType: 'foldable',
+        image: REAL_PHOTOS.foldableMain,
+        gallery: [
+          { url: REAL_PHOTOS.foldableMain, caption: '平板電腦多角度無段懸停支架與懸浮鍵盤樞紐' },
+          { url: REAL_PHOTOS.foldable2, caption: '高壽命水滴型摺疊裝置多連桿轉軸機構' },
+          { url: REAL_PHOTOS.foldable1, caption: '超薄平板磁吸雙軸懸停保護套轉軸' }
+        ],
+        tags: ['水滴型摺疊機構', '無段懸停支架', '20萬次壽命', '懸浮鍵盤轉軸'],
+        description: '結合 MIM 金屬射出與多連桿專利設計，為新世代摺疊螢幕裝置提供高壽命水滴型摺疊機構，同時支援平板電腦無段懸停支架與磁吸懸浮鍵盤雙軸樞紐，實現極致纖薄與高穩定度。',
+        modules: [
+          { name: '高壽命水滴型摺疊多連桿機構', specInfo: 'MIM 凸輪與精密同步齒輪', tolerance: '20萬次摺疊', image: REAL_PHOTOS.foldable2, badge: '次世代摺疊' },
+          { name: '平板多角度無段懸停支架 (Kickstand)', specInfo: '0°~165° 任意角度懸停', tolerance: '±0.015mm', image: REAL_PHOTOS.foldableMain, badge: '超薄支架' },
+          { name: '懸浮式平板巧控鍵盤雙軸樞紐', specInfo: '觸控操作零晃動支撐', tolerance: '扭力 ±8%', image: REAL_PHOTOS.foldable1, badge: '平板配件' },
+          { name: '摺疊雙螢幕筆電同步連動轉軸', specInfo: '雙屏無縫對齊結構', tolerance: '10萬次驗證', image: REAL_PHOTOS.foldable3, badge: '創新機構' }
+        ]
+      },
+      {
+        id: 'mim-parts',
+        name: '金屬射出成形 (Metal Injection Molding, MIM)',
+        category: '精密金屬製程',
+        isFlagship: false,
+        rating: 4.9,
+        reviewCount: 33,
+        targetDevices: '摺疊轉軸齒輪凸輪、穿戴裝置中框、消費電子微型結構件',
+        lifecycleSpec: '高疲勞抗磨耗燒結・相對密度 >97.5%',
+        materialsSpec: '316L / 17-4PH 不鏽鋼、高硬度合金鋼、鈦合金',
+        leadTime: '3-4 週模具與 T1 試樣',
+        plantLocation: '台灣樹林 MIM 中心・蘇州智能工廠',
+        certStandard: 'ISO 9001 / ISO 14001・真空高溫燒結與熱處理',
+        toleranceSpec: '尺寸公差 ±0.3%~0.5%・3D 複雜幾何近淨成形',
+        officialUrl: 'https://www.szs-group.com/',
+        photoType: 'mim',
+        image: REAL_PHOTOS.mimMain,
+        gallery: [
+          { url: REAL_PHOTOS.mimMain, caption: '316L 不鏽鋼複雜三維結構 MIM 精密成形件' },
+          { url: REAL_PHOTOS.mim1, caption: '摺疊轉軸高硬度合金精密微型齒輪組' },
+          { url: REAL_PHOTOS.mim2, caption: '真空燒結高致密金屬結構零組件' }
+        ],
+        tags: ['316L不鏽鋼', '複雜3D結構件', '高硬度合金', '近淨成形'],
+        description: '結合塑膠射出的複雜三維幾何成型能力與粉末冶金的高強度機械特性，無需繁複二次機加即可量產 316L 不鏽鋼複雜結構件與高硬度合金精密微小件，為摺疊轉軸與微型機構的核心支柱。',
+        modules: [
+          { name: '316L 不鏽鋼複雜三維結構件', specInfo: '高耐蝕與鏡面拋光特性', tolerance: '密度 >97.5%', image: REAL_PHOTOS.mimMain, badge: '核心製程' },
+          { name: '高硬度合金精密微型齒輪與凸輪', specInfo: '17-4PH / 工具鋼熱處理', tolerance: 'HRC 42-46', image: REAL_PHOTOS.mim1, badge: '摺疊轉軸心臟' },
+          { name: '穿戴與聲學裝置微型結構固定座', specInfo: '一體近淨成形免切削', tolerance: '±0.025mm', image: REAL_PHOTOS.mim2, badge: '高複雜度' },
+          { name: '光學與伺服器精密不鏽鋼卡榫件', specInfo: '自動化光學尺寸全檢', tolerance: 'AOI 全檢', image: REAL_PHOTOS.mim3, badge: '精密結構' }
+        ]
+      },
+      {
+        id: 'cnc-lathes',
+        name: '精密車銑製件 (CNC Lathes)',
+        category: '精密金屬製程',
+        isFlagship: false,
+        rating: 4.8,
+        reviewCount: 29,
+        targetDevices: '樞紐微米級心軸、AI 伺服器液冷快接頭、光學與電子連結件',
+        lifecycleSpec: '高耐磨鏡面軸心・長期動態旋轉無偏擺',
+        materialsSpec: 'SUS303 / SUS304 / SUS316L 不鏽鋼、快削鋼、銅合金',
+        leadTime: '1-2 週樣品加工',
+        plantLocation: '新北樹林廠・蘇州精密機加中心',
+        certStandard: '多軸走心式車床・CNC 車銑複合一次裝夾加工',
+        toleranceSpec: '外徑公差 ±0.003mm・微米級同心度 <0.002mm',
+        officialUrl: 'https://www.szs-group.com/',
+        photoType: 'cnc',
+        image: REAL_PHOTOS.cncMain,
+        gallery: [
+          { url: REAL_PHOTOS.cncMain, caption: '多軸複合車銑心軸與精密走心式車床加工' },
+          { url: REAL_PHOTOS.cnc1, caption: '微米級同心度軸套與高精密阻尼連結件' },
+          { url: REAL_PHOTOS.cnc2, caption: '不鏽鋼與銅合金精密電子五金零組件' }
+        ],
+        tags: ['多軸複合車銑', '微米級同心度', '公差 ±0.003mm', '樞紐心軸'],
+        description: '配備高階日本與瑞士多軸走心式精密車床與車銑複合中心，專精於多軸複合車銑心軸（Shaft）、微米級同心度軸套與精密連結件，提供轉軸阻尼組裝與高氣密接頭最穩固的幾何基準。',
+        modules: [
+          { name: '多軸複合車銑精密心軸 (Shaft)', specInfo: '鏡面研磨與微米油溝銑削', tolerance: '±0.003mm', image: REAL_PHOTOS.cncMain, badge: '微米精工' },
+          { name: '微米級同心度軸套與阻尼凸輪', specInfo: '一次裝夾完成多面車銑', tolerance: '同心度 <0.002mm', image: REAL_PHOTOS.cnc1, badge: '高同心度' },
+          { name: 'AI 伺服器液冷快接頭精密閥芯連結件', specInfo: 'SUS316L 耐蝕與氣密全檢', tolerance: '100% 氣密檢', image: REAL_PHOTOS.cnc2, badge: '伺服器散熱' },
+          { name: '微型電子與聲學精密螺套組件', specInfo: '無毛邊超音波潔淨製程', tolerance: '±0.005mm', image: REAL_PHOTOS.cnc3, badge: '潔淨五金' }
+        ]
+      },
+      {
+        id: 'precision-stamping',
+        name: '精密沖壓製件 (Stamping)',
+        category: '精密金屬製程',
+        isFlagship: false,
+        rating: 4.7,
+        reviewCount: 24,
+        targetDevices: '筆電與顯示器樞紐支架、5G/AI 晶片 EMI 遮罩、導電彈片',
+        lifecycleSpec: '高速連續模穩定沖壓・高彈性抗疲勞',
+        materialsSpec: '超薄不鏽鋼 SUS301/304、洋白銅、鈹銅、高強度冷軋鋼',
+        leadTime: '2-3 週連續模開發',
+        plantLocation: '台灣三俊廠・蘇州・福清・越南廠',
+        certStandard: '高速連續模沖壓・全自動光學影像檢測 (AOI)',
+        toleranceSpec: '平面度 <0.02mm・微米級沖裁毛邊控制',
+        officialUrl: 'https://www.szs-group.com/',
+        photoType: 'stamping',
+        image: REAL_PHOTOS.stampingMain,
+        gallery: [
+          { url: REAL_PHOTOS.stampingMain, caption: '高速連續模沖壓支架與高剛性金屬結構件' },
+          { url: REAL_PHOTOS.stamping1, caption: '超薄不鏽鋼結構彈片與射頻 EMI 遮罩' },
+          { url: REAL_PHOTOS.stamping3, caption: '垂直整合模內攻牙與自動化組裝產線' }
+        ],
+        tags: ['高速連續模沖壓', '超薄結構彈片', 'EMI遮罩', 'AOI光學全檢'],
+        description: '擁有自主連續模具設計與精密加工團隊，結合高噸位與超高速精密沖床，大量生產樞紐高強度支架、超薄不鏽鋼結構彈片、EMI 射頻遮罩及伺服器機櫃金屬機構件。',
+        modules: [
+          { name: '高速連續模沖壓樞紐支架 (Bracket)', specInfo: '高剛性不鏽鋼精沖成型', tolerance: '平面度 <0.02mm', image: REAL_PHOTOS.stampingMain, badge: '結構主力' },
+          { name: '超薄不鏽鋼結構彈片與接地彈片', specInfo: 'SUS301 / 鈹銅高彈性材料', tolerance: '±0.012mm', image: REAL_PHOTOS.stamping1, badge: '微米彈片' },
+          { name: '高速運算晶片 EMI 電磁遮罩', specInfo: '超薄洋白銅精密折彎', tolerance: 'AOI 全檢', image: REAL_PHOTOS.stamping2, badge: '射頻屏蔽' },
+          { name: '模內攻牙與自動化鉚合複合沖壓件', specInfo: '減少二次加工累積誤差', tolerance: '自動化量產', image: REAL_PHOTOS.stamping3, badge: '垂直整合' }
+        ]
+      },
+      {
+        id: 'precision-springs',
+        name: '精密彈簧製件 (Springs)',
+        category: '精密金屬製程',
+        isFlagship: false,
+        rating: 4.8,
+        reviewCount: 21,
+        targetDevices: '各類樞紐扭力機構、穿戴快拆扣具、伺服器快拆卡榫',
+        lifecycleSpec: '100,000 次高頻疲勞測試・扭力衰減率 <5%',
+        materialsSpec: '進口琴鋼線 SWP-B、不鏽鋼線 SUS304WPB / SUS316',
+        leadTime: '1-2 週彈性曲線打樣',
+        plantLocation: '新北樹林總部・蘇州欣日興',
+        certStandard: 'CNC 多軸無凸輪彈簧機・全自動扭力曲線分選',
+        toleranceSpec: '線徑 Ø0.08mm ~ 3.5mm・彈力公差 ±5%',
+        officialUrl: 'https://www.szs-group.com/',
+        photoType: 'spring',
+        image: REAL_PHOTOS.springMain,
+        gallery: [
+          { url: REAL_PHOTOS.springMain, caption: '高壽命扭力彈簧與精密壓縮彈簧製件' },
+          { url: REAL_PHOTOS.spring1, caption: '微型客製化線材成型件與微細線徑彈簧' },
+          { url: REAL_PHOTOS.spring2, caption: '全自動光學測長與扭力疲勞測試驗證' }
+        ],
+        tags: ['扭力彈簧', '壓縮彈簧', '微型線材成型件', '線徑Ø0.08mm起'],
+        description: '支援從極微線徑（Ø0.08mm）至高負載線材，配備高精度 CNC 多軸無凸輪彈簧成形機與線上光學測長分選系統，精準控制扭力彈簧、壓縮彈簧與微型客製化線材成型件的力學曲線。',
+        modules: [
+          { name: '轉軸專用高壽命扭力彈簧 (Torsion Spring)', specInfo: '進口琴鋼線與應力消除處理', tolerance: '衰減率 <5%', image: REAL_PHOTOS.springMain, badge: '扭力核心' },
+          { name: '微型精密壓縮彈簧 (Compression Spring)', specInfo: '線徑最小 Ø0.08mm', tolerance: '線上光學全檢', image: REAL_PHOTOS.spring1, badge: '極微線徑' },
+          { name: '微型客製化線材成型件 (Wire Forming)', specInfo: '多軸無凸輪三維一體成型', tolerance: '±0.015mm', image: REAL_PHOTOS.spring2, badge: '客製成型' },
+          { name: '雙向回彈與高負載拉伸彈簧組件', specInfo: '客製化掛勾與防纏繞包裝', tolerance: '10萬次疲勞驗證', image: REAL_PHOTOS.spring3, badge: '高可靠性' }
+        ]
+      }
+    ];
+
+    const DEFAULT_FAQS = [
+      {
+        q: '新專案開發（OEM/ODM）的打樣週期與最小訂購量（MOQ）為何？',
+        a: '標準精密車銑與彈簧樣品約 1～2 週可交付；客製化筆電/顯示器樞紐與連續沖壓打樣約 2～3 週；涉及新開模具之 MIM 金屬射出成形約 3～4 週完成 T1 試樣。我們支援從 EVT/DVT 工程試產至百萬級大規模量產的彈性配置。'
+      },
+      {
+        q: '是否支援簽署 NDA 後進行 3D CAD / STEP 圖面共同開發？',
+        a: '是的。新日興於台灣樹林總部與蘇州設有專屬研發團隊，並累積 1,286 件全球專利。客戶簽署 NDA 後即可由資深機構工程師提供 DFM（可製造性設計）建議、扭力曲線模擬與專利迴避設計支援。'
+      },
+      {
+        q: '新日興具備哪些品質管理系統與 ESG 永續認證？',
+        a: '全集團主要生產基地皆通過 ISO 9001 品質管理與 ISO 14001 環境管理系統認證，並榮獲 TCSA 台灣企業永續獎銀級獎與入選外資精選台灣百強（Taiwan FINI 100），符合國際一線品牌綠色供應鏈稽核標準。'
+      },
+      {
+        q: '各生產基地如何協助客戶分散供應鏈風險？',
+        a: '新日興橫跨台灣新北樹林（研發與核心試產）、中國蘇州與福建福清（大規模智能製造園區）以及越南北江廠（東南亞新製造基地），可依據客戶終端組裝廠區需求彈性調度產能。'
+      }
+    ];
+
+    const DEFAULT_TICKETS = [
+      {
+        id: 'SZS-2026-0814',
+        company: '範例客戶・系統機構研發部',
+        contact: '林資深工程師',
+        email: 'rd.example@corp.com',
+        type: 'OEM/ODM 新專案開發詢價',
+        productName: '筆記型電腦樞紐 (NB Hinges)',
+        volume: '預估年需求 600K pcs / Q4 EVT',
+        message: '評估 14 吋超薄商務筆電內藏式一字軸方案，需求單手開蓋扭力平衡及 30,000 次開合壽命報告。',
+        status: '已受理・指派樹林研發窗口',
+        createdAt: '2026/11/19 14:20'
+      }
+    ];
+
+    // -------------------------------------------------------------------------
+    // 3. STATE MANAGEMENT & LOCALSTORAGE PERSISTENCE
+    // -------------------------------------------------------------------------
+    let appState = {
+      products: [],
+      favorites: ['nb-hinges'],
+      compareIds: ['nb-hinges', 'tablet-foldable-hinges', 'mim-parts'],
+      tickets: [],
+      activeTab: 'products',
+      selectedCategory: '全部',
+      searchQuery: '',
+      productsOnlyFav: false,
+      wheelSelectedIds: [],
+      wheelOnlyFav: false,
+      currentDetailId: null,
+      detailActivePhotoIdx: 0,
+      openFaqIndex: 0
+    };
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          appState.products = Array.isArray(parsed.products) && parsed.products.length ? parsed.products : structuredClone(DEFAULT_PRODUCTS);
+          appState.favorites = Array.isArray(parsed.favorites) ? parsed.favorites : ['nb-hinges'];
+          appState.compareIds = Array.isArray(parsed.compareIds) && parsed.compareIds.length
+            ? parsed.compareIds
+            : ['nb-hinges', 'tablet-foldable-hinges', 'mim-parts'];
+          appState.tickets = Array.isArray(parsed.tickets) ? parsed.tickets : structuredClone(DEFAULT_TICKETS);
+          appState.wheelSelectedIds = Array.isArray(parsed.wheelSelectedIds) && parsed.wheelSelectedIds.length
+            ? parsed.wheelSelectedIds
+            : appState.products.map(p => p.id);
+        } else {
+          resetToDefaultsInMemory();
+        }
+      } catch (e) {
+        console.warn('讀取 localStorage 失敗，使用預設資料', e);
+        resetToDefaultsInMemory();
+      }
+    }
+
+    function resetToDefaultsInMemory() {
+      appState.products = structuredClone(DEFAULT_PRODUCTS);
+      appState.favorites = ['nb-hinges'];
+      appState.compareIds = ['nb-hinges', 'tablet-foldable-hinges', 'mim-parts'];
+      appState.tickets = structuredClone(DEFAULT_TICKETS);
+      appState.wheelSelectedIds = appState.products.map(p => p.id);
+    }
+
+    function saveState() {
+      try {
+        const payload = {
+          products: appState.products,
+          favorites: appState.favorites,
+          compareIds: appState.compareIds,
+          tickets: appState.tickets,
+          wheelSelectedIds: appState.wheelSelectedIds
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      } catch (e) {
+        console.warn('儲存 localStorage 失敗', e);
+      }
+      updateGlobalCounters();
+    }
+
+    function resetAllDefaultData() {
+      localStorage.removeItem(STORAGE_KEY);
+      resetToDefaultsInMemory();
+      saveState();
+      renderAll();
+      showToast('已重置為新日興官方 8 大產品線預設狀態！');
+      switchTab('products');
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. COMPANY STORY DRAWER & NAVIGATION LOGIC
+    // -------------------------------------------------------------------------
+    function toggleCompanyStory() {
+      const drawer = document.getElementById('company-story-drawer');
+      const icon = document.getElementById('company-story-icon');
+      const text = document.getElementById('company-story-btn-text');
+      const isHidden = drawer.classList.contains('hidden');
+      if (isHidden) {
+        drawer.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+        text.textContent = '收合 ESG 永續成就與全球營運據點';
+      } else {
+        drawer.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+        text.textContent = '檢視 ESG 永續成就與全球生產營運據點';
+      }
+    }
+
+    function switchTab(tabName) {
+      appState.activeTab = tabName;
+
+      document.querySelectorAll('.view-section').forEach(sec => sec.classList.add('hidden'));
+
+      const targetSection = document.getElementById(`view-${tabName}`);
+      if (targetSection) {
+        targetSection.classList.remove('hidden');
+        targetSection.classList.remove('view-animate');
+        void targetSection.offsetWidth;
+        targetSection.classList.add('view-animate');
+      }
+
+      const activeNavTab = tabName === 'detail' ? 'products' : tabName;
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        const isMatch = btn.dataset.tab === activeNavTab;
+        if (isMatch) {
+          btn.classList.add('bg-amberwarm-500', 'text-white', 'shadow-md', 'shadow-amberwarm-500/20');
+          btn.classList.remove('text-ivory-200', 'hover:bg-obsidian-800');
+        } else {
+          btn.classList.remove('bg-amberwarm-500', 'text-white', 'shadow-md', 'shadow-amberwarm-500/20');
+          btn.classList.add('text-ivory-200', 'hover:bg-obsidian-800');
+        }
+      });
+
+      document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
+        const isMatch = btn.dataset.tab === activeNavTab;
+        if (isMatch) {
+          btn.classList.add('text-amberwarm-400', 'bg-amberwarm-500/15');
+          btn.classList.remove('text-ivory-300');
+        } else {
+          btn.classList.remove('text-amberwarm-400', 'bg-amberwarm-500/15');
+          btn.classList.add('text-ivory-300');
+        }
+      });
+
+      if (tabName === 'products') renderProductsList();
+      if (tabName === 'compare') renderCompareView();
+      if (tabName === 'wheel') {
+        renderWheelChecklist();
+        resizeAndDrawWheel();
+      }
+      if (tabName === 'favorites') renderFavoritesView();
+      if (tabName === 'support') renderSupportView();
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateGlobalCounters() {
+      const favCount = appState.favorites.length;
+      const compCount = appState.compareIds.length;
+      const prodCount = appState.products.length;
+      const ticketCount = appState.tickets.length;
+
+      const navFav = document.getElementById('nav-fav-count');
+      const navComp = document.getElementById('nav-compare-count');
+      const navTicket = document.getElementById('nav-ticket-count');
+      const sideBadge = document.getElementById('sidebar-count-badge');
+      const mobileDot = document.getElementById('mobile-fav-dot');
+
+      if (navFav) navFav.textContent = favCount;
+      if (navComp) navComp.textContent = compCount;
+      if (navTicket) navTicket.textContent = `${ticketCount} 案`;
+      if (sideBadge) sideBadge.textContent = `${prodCount} 大產品線`;
+      if (mobileDot) {
+        if (favCount > 0) mobileDot.classList.remove('hidden');
+        else mobileDot.classList.add('hidden');
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 5. MODULE 1: PRODUCTS LIST, FILTERING & PRODUCT DETAIL VIEW
+    // -------------------------------------------------------------------------
+    function renderCategoryPills() {
+      const container = document.getElementById('category-pills');
+      const categories = ['全部', ...new Set(appState.products.map(p => p.category))];
+
+      container.innerHTML = categories.map(cat => {
+        const active = appState.selectedCategory === cat;
+        return `
+          <button
+            onclick="selectCategory('${cat}')"
+            class="px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition cursor-pointer ${
+              active
+                ? 'bg-amberwarm-500 text-white shadow-sm'
+                : 'bg-obsidian-850 border border-obsidian-600 text-ivory-200 hover:border-amberwarm-500/40 hover:text-ivory-100'
+            }"
+          >
+            ${cat}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectCategory(cat) {
+      appState.selectedCategory = cat;
+      renderCategoryPills();
+      renderProductsList();
+    }
+
+    function handleSearchInput(val) {
+      appState.searchQuery = val.trim();
+      const clearBtn = document.getElementById('clear-search-btn');
+      if (appState.searchQuery) clearBtn.classList.remove('hidden');
+      else clearBtn.classList.add('hidden');
+      renderProductsList();
+    }
+
+    function clearSearch() {
+      appState.searchQuery = '';
+      document.getElementById('search-input').value = '';
+      document.getElementById('clear-search-btn').classList.add('hidden');
+      renderProductsList();
+    }
+
+    function toggleProductsOnlyFav() {
+      appState.productsOnlyFav = !appState.productsOnlyFav;
+      const btn = document.getElementById('quick-fav-filter-btn');
+      if (appState.productsOnlyFav) {
+        btn.classList.add('bg-amberwarm-500/20', 'border-amberwarm-500', 'text-amberwarm-300');
+        btn.classList.remove('bg-obsidian-850', 'border-obsidian-600', 'text-ivory-200');
+      } else {
+        btn.classList.remove('bg-amberwarm-500/20', 'border-amberwarm-500', 'text-amberwarm-300');
+        btn.classList.add('bg-obsidian-850', 'border-obsidian-600', 'text-ivory-200');
+      }
+      renderProductsList();
+    }
+
+    function resetFilters() {
+      appState.selectedCategory = '全部';
+      appState.searchQuery = '';
+      appState.productsOnlyFav = false;
+      document.getElementById('search-input').value = '';
+      document.getElementById('clear-search-btn').classList.add('hidden');
+      const btn = document.getElementById('quick-fav-filter-btn');
+      btn.classList.remove('bg-amberwarm-500/20', 'border-amberwarm-500', 'text-amberwarm-300');
+      btn.classList.add('bg-obsidian-850', 'border-obsidian-600', 'text-ivory-200');
+      renderCategoryPills();
+      renderProductsList();
+    }
+
+    function getFilteredProducts() {
+      return appState.products.filter(p => {
+        if (appState.productsOnlyFav && !appState.favorites.includes(p.id)) return false;
+        if (appState.selectedCategory !== '全部' && p.category !== appState.selectedCategory) return false;
+        if (appState.searchQuery) {
+          const q = appState.searchQuery.toLowerCase();
+          const inName = p.name.toLowerCase().includes(q);
+          const inCat = p.category.toLowerCase().includes(q);
+          const inDevices = p.targetDevices.toLowerCase().includes(q);
+          const inDesc = p.description.toLowerCase().includes(q);
+          const inTags = p.tags.some(t => t.toLowerCase().includes(q));
+          const inModules = p.modules.some(m => m.name.toLowerCase().includes(q) || m.specInfo.toLowerCase().includes(q));
+          return inName || inCat || inDevices || inDesc || inTags || inModules;
+        }
+        return true;
+      });
+    }
+
+    function createProductCardHTML(product) {
+      const isFav = appState.favorites.includes(product.id);
+      const isCompared = appState.compareIds.includes(product.id);
+      const previewModules = product.modules.slice(0, 3);
+      const photoType = product.photoType || 'default';
+
+      return `
+        <article onclick="openProductDetail('${product.id}')" class="bento-card bento-card-hover overflow-hidden flex flex-col justify-between cursor-pointer group relative ${product.isFlagship ? 'ring-2 ring-amberwarm-500/60' : ''}">
+          <div>
+            <!-- Real SZS-Domain Hero Image -->
+            <div class="relative h-48 w-full overflow-hidden bg-obsidian-900">
+              <img
+                src="${product.image}"
+                alt="${product.name}"
+                loading="lazy"
+                onload="this.classList.add('loaded')"
+                onerror="handleImgError(this, '${photoType}')"
+                class="tech-photo tech-photo-zoom w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950/90 via-obsidian-950/25 to-transparent"></div>
+
+              <!-- Top Badges & Action Icons -->
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                <div class="flex flex-wrap items-center gap-1.5">
+                  ${product.isFlagship ? `
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amberwarm-500 text-white text-[11px] font-extrabold shadow-sm">
+                      <i data-lucide="zap" class="w-3 h-3 fill-white"></i>
+                      <span>旗艦主力產品</span>
+                    </span>
+                  ` : ''}
+                  <span class="px-2.5 py-1 rounded-full bg-obsidian-950/85 backdrop-blur-sm border border-white/15 text-ivory-100 text-[11px] font-bold">
+                    ${product.category}
+                  </span>
+                </div>
+
+                <div class="flex items-center gap-1.5 shrink-0">
+                  <button
+                    type="button"
+                    onclick="event.stopPropagation(); toggleCompareItem('${product.id}')"
+                    title="${isCompared ? '已加入規格比對' : '加入規格比對'}"
+                    class="w-9 h-9 rounded-full bg-obsidian-950/85 backdrop-blur-sm border ${isCompared ? 'border-amberwarm-500 text-amberwarm-400' : 'border-white/15 text-ivory-200'} flex items-center justify-center hover:scale-110 active:scale-95 transition"
+                  >
+                    <i data-lucide="columns-3" class="w-4 h-4"></i>
+                  </button>
+                  <button
+                    type="button"
+                    onclick="event.stopPropagation(); toggleFavorite('${product.id}')"
+                    title="${isFav ? '取消收藏規格' : '收藏此產品規格'}"
+                    class="w-9 h-9 rounded-full bg-obsidian-950/85 backdrop-blur-sm border border-white/15 flex items-center justify-center hover:scale-110 active:scale-95 transition"
+                  >
+                    <i data-lucide="bookmark" class="w-4 h-4 ${isFav ? 'text-amberwarm-400 fill-amberwarm-400' : 'text-ivory-200'}"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Bottom Overlay Title & Spec Badge -->
+              <div class="absolute bottom-3 left-4 right-4 flex items-end justify-between gap-2">
+                <div class="min-w-0">
+                  <h3 class="text-lg font-editorial font-black text-white leading-snug truncate drop-shadow">
+                    ${product.name}
+                  </h3>
+                  <p class="text-[11px] text-ivory-200 flex items-center gap-1 mt-0.5 truncate">
+                    <i data-lucide="crosshair" class="w-3 h-3 text-amberwarm-400 shrink-0"></i>
+                    <span class="truncate">${product.toleranceSpec}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="p-5">
+              <!-- Lead Time & Lifecycle -->
+              <div class="flex flex-wrap items-center gap-2 text-xs text-ivory-300 mb-3">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-obsidian-850 border border-obsidian-600 font-semibold text-ivory-200">
+                  <i data-lucide="clock" class="w-3.5 h-3.5 text-amberwarm-400"></i>
+                  ${product.leadTime}
+                </span>
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-sage-500/15 border border-sage-500/30 text-sage-500 font-bold">
+                  <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                  ${product.lifecycleSpec.split(' ')[0]} 次驗證
+                </span>
+              </div>
+
+              <!-- Short Description -->
+              <p class="text-xs text-ivory-300 leading-relaxed line-clamp-2 mb-3.5">
+                ${product.description}
+              </p>
+
+              <!-- Core Modules Preview Box -->
+              <div class="bg-obsidian-950/90 border border-obsidian-600 rounded-2xl p-3">
+                <div class="text-[11px] font-bold text-ivory-400 mb-2 flex items-center justify-between">
+                  <span>代表性核心子模組 (${product.modules.length} 項)</span>
+                  <span class="text-amberwarm-400 group-hover:translate-x-0.5 transition-transform inline-flex items-center gap-0.5">
+                    檢視規格 <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                  </span>
+                </div>
+                <div class="space-y-1.5">
+                  ${previewModules.map(m => `
+                    <div class="flex items-center justify-between text-xs gap-2">
+                      <span class="font-semibold text-ivory-100 truncate">• ${m.name}</span>
+                      <span class="font-bold text-amberwarm-400 shrink-0 text-[11px]">${m.tolerance}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer Tags -->
+          <div class="px-5 pb-4 pt-1 flex flex-wrap gap-1.5">
+            ${product.tags.slice(0, 3).map(tag => `
+              <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-obsidian-850 border border-obsidian-600 text-ivory-300">
+                #${tag}
+              </span>
+            `).join('')}
+          </div>
+        </article>
+      `;
+    }
+
+    function renderProductsList() {
+      renderCategoryPills();
+      const filtered = getFilteredProducts();
+      const grid = document.getElementById('products-grid');
+      const empty = document.getElementById('products-empty');
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+      } else {
+        empty.classList.add('hidden');
+        grid.innerHTML = filtered.map(createProductCardHTML).join('');
+      }
+      lucide.createIcons();
+    }
+
+    function switchDetailPhoto(idx) {
+      appState.detailActivePhotoIdx = idx;
+      const product = appState.products.find(p => p.id === appState.currentDetailId);
+      if (!product) return;
+      const gallery = product.gallery && product.gallery.length ? product.gallery : [{ url: product.image, caption: product.name }];
+      const chosen = gallery[idx] || gallery[0];
+
+      const mainImg = document.getElementById('detail-main-photo');
+      const captionEl = document.getElementById('detail-photo-caption');
+      if (mainImg) {
+        mainImg.classList.remove('loaded');
+        mainImg.src = chosen.url;
+      }
+      if (captionEl) {
+        captionEl.textContent = chosen.caption;
+      }
+
+      document.querySelectorAll('.detail-thumb-btn').forEach((btn, i) => {
+        if (i === idx) {
+          btn.classList.add('ring-2', 'ring-amberwarm-500', 'opacity-100');
+          btn.classList.remove('opacity-60');
+        } else {
+          btn.classList.remove('ring-2', 'ring-amberwarm-500', 'opacity-100');
+          btn.classList.add('opacity-60');
+        }
+      });
+    }
+
+    function openProductDetail(productId) {
+      const product = appState.products.find(p => p.id === productId);
+      if (!product) return;
+
+      appState.currentDetailId = productId;
+      appState.detailActivePhotoIdx = 0;
+      const isFav = appState.favorites.includes(product.id);
+      const isCompared = appState.compareIds.includes(product.id);
+      const photoType = product.photoType || 'default';
+      const gallery = product.gallery && product.gallery.length ? product.gallery : [{ url: product.image, caption: product.name }];
+
+      const detailContainer = document.getElementById('detail-content');
+      detailContainer.innerHTML = `
+        <!-- Back Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+          <button onclick="switchTab('products')" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-obsidian-800 border border-obsidian-600 text-xs sm:text-sm font-bold text-ivory-200 hover:border-amberwarm-500/50 hover:text-amberwarm-300 transition">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            <span>返回新日興產品線總覽</span>
+          </button>
+
+          <div class="flex items-center gap-2">
+            <button onclick="toggleCompareItem('${product.id}', true)" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border text-xs sm:text-sm font-bold transition ${
+              isCompared ? 'bg-amberwarm-500/20 border-amberwarm-500 text-amberwarm-300' : 'bg-obsidian-800 border-obsidian-600 text-ivory-200 hover:border-amberwarm-500/50'
+            }">
+              <i data-lucide="columns-3" class="w-4 h-4"></i>
+              <span>${isCompared ? '已加入比對表' : '加入規格比對'}</span>
+            </button>
+            <button onclick="toggleFavorite('${product.id}', true)" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border text-xs sm:text-sm font-bold transition ${
+              isFav ? 'bg-amberwarm-500/20 border-amberwarm-500 text-amberwarm-300' : 'bg-obsidian-800 border-obsidian-600 text-ivory-200 hover:border-amberwarm-500/50'
+            }">
+              <i data-lucide="bookmark" class="w-4 h-4 ${isFav ? 'fill-amberwarm-400 text-amberwarm-400' : ''}"></i>
+              <span>${isFav ? '已收藏規格' : '收藏此產品線'}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Product Hero Banner with Real Photo Gallery -->
+        <div class="bento-card overflow-hidden mb-6">
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            <!-- Left Photo Gallery Column -->
+            <div class="lg:col-span-5 bg-obsidian-950 flex flex-col justify-between p-4 sm:p-5 border-b lg:border-b-0 lg:border-r border-obsidian-600">
+              <div class="relative h-60 sm:h-72 rounded-2xl overflow-hidden bg-obsidian-900">
+                <img
+                  id="detail-main-photo"
+                  src="${gallery[0].url}"
+                  alt="${product.name}"
+                  onload="this.classList.add('loaded')"
+                  onerror="handleImgError(this, '${photoType}')"
+                  class="tech-photo w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                ${product.isFlagship ? `
+                  <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amberwarm-500 text-white text-xs font-extrabold shadow">
+                    <i data-lucide="zap" class="w-3.5 h-3.5 fill-white"></i> 新日興旗艦核心產品
+                  </span>
+                ` : ''}
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
+                  <span id="detail-photo-caption" class="font-semibold truncate pr-2">${gallery[0].caption}</span>
+                  <span class="px-2 py-0.5 rounded-md bg-black/65 border border-white/15 backdrop-blur-sm text-[10px] shrink-0">產品實拍</span>
+                </div>
+              </div>
+
+              <!-- Thumbnail Selector -->
+              ${gallery.length > 1 ? `
+                <div class="mt-3">
+                  <span class="text-[11px] font-bold text-ivory-400 block mb-2">產品與製程圖集（點擊切換預覽）</span>
+                  <div class="grid grid-cols-4 gap-2">
+                    ${gallery.map((g, idx) => `
+                      <button
+                        type="button"
+                        onclick="switchDetailPhoto(${idx})"
+                        class="detail-thumb-btn relative h-14 rounded-xl overflow-hidden bg-obsidian-900 transition cursor-pointer ${idx === 0 ? 'ring-2 ring-amberwarm-500 opacity-100' : 'opacity-60 hover:opacity-100'}"
+                      >
+                        <img
+                          src="${g.url}"
+                          alt="${g.caption}"
+                          onload="this.classList.add('loaded')"
+                          onerror="handleImgError(this, '${photoType}')"
+                          class="tech-photo w-full h-full object-cover"
+                        />
+                      </button>
+                    `).join('')}
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+
+            <!-- Right Engineering Info Column -->
+            <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between">
+              <div>
+                <div class="flex flex-wrap items-center gap-2 mb-2.5">
+                  <span class="px-3 py-1 rounded-full bg-amberwarm-500/15 border border-amberwarm-500/30 text-amberwarm-300 text-xs font-bold">${product.category}</span>
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-sage-500/15 border border-sage-500/30 text-sage-500 text-xs font-extrabold">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                    ${product.lifecycleSpec}
+                  </span>
+                </div>
+
+                <h2 class="text-2xl sm:text-3xl font-editorial font-black text-ivory-100 tracking-tight mb-2">
+                  ${product.name}
+                </h2>
+                <p class="text-xs sm:text-sm text-ivory-200 leading-relaxed mb-5">
+                  ${product.description}
+                </p>
+
+                <!-- Engineering Spec Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div class="p-3.5 rounded-2xl bg-obsidian-950 border border-obsidian-600 flex items-start gap-2.5">
+                    <i data-lucide="laptop" class="w-4 h-4 text-amberwarm-400 shrink-0 mt-0.5"></i>
+                    <div>
+                      <span class="font-bold text-ivory-100 block">主要適用終端應用</span>
+                      <span class="text-ivory-300">${product.targetDevices}</span>
+                    </div>
+                  </div>
+                  <div class="p-3.5 rounded-2xl bg-obsidian-950 border border-obsidian-600 flex items-start gap-2.5">
+                    <i data-lucide="crosshair" class="w-4 h-4 text-amberwarm-400 shrink-0 mt-0.5"></i>
+                    <div>
+                      <span class="font-bold text-ivory-100 block">核心公差與材質規範</span>
+                      <span class="text-ivory-300">${product.toleranceSpec}｜${product.materialsSpec}</span>
+                    </div>
+                  </div>
+                  <div class="p-3.5 rounded-2xl bg-obsidian-950 border border-obsidian-600 flex items-start gap-2.5">
+                    <i data-lucide="clock" class="w-4 h-4 text-amberwarm-400 shrink-0 mt-0.5"></i>
+                    <div>
+                      <span class="font-bold text-ivory-100 block">標準打樣與開發週期</span>
+                      <span class="text-ivory-300">${product.leadTime}</span>
+                    </div>
+                  </div>
+                  <div class="p-3.5 rounded-2xl bg-obsidian-950 border border-obsidian-600 flex items-start gap-2.5">
+                    <i data-lucide="factory" class="w-4 h-4 text-amberwarm-400 shrink-0 mt-0.5"></i>
+                    <div>
+                      <span class="font-bold text-ivory-100 block">主要生產與研發廠區</span>
+                      <span class="text-ivory-300">${product.plantLocation}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- External Official Website & Direct RFQ CTA -->
+              <div class="mt-6 pt-4 border-t border-obsidian-600 flex flex-wrap items-center gap-3">
+                <button onclick="openSupportForProduct('${product.id}')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amberwarm-500 text-white text-xs font-bold hover:bg-amberwarm-600 transition shadow-sm">
+                  <i data-lucide="headset" class="w-4 h-4"></i>
+                  <span>索取此產品線規格書與樣品諮詢</span>
+                </button>
+                <a href="${product.officialUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-obsidian-800 border border-obsidian-600 text-ivory-100 text-xs font-bold hover:border-amberwarm-500/50 transition">
+                  <i data-lucide="globe" class="w-4 h-4 text-amberwarm-400"></i>
+                  <span>前往新日興官方網站 (szs-group.com)</span>
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full Sub-Modules & Engineering Specifications List -->
+        <div class="bento-card p-6 sm:p-8">
+          <div class="flex items-center justify-between mb-5">
+            <div>
+              <h3 class="text-xl font-editorial font-black text-ivory-100 flex items-center gap-2">
+                <i data-lucide="cpu" class="w-5 h-5 text-amberwarm-400"></i>
+                <span>子模組規格表與技術參數</span>
+              </h3>
+              <p class="text-xs text-ivory-300 mt-0.5">包含材質規範、關鍵尺寸公差與耐久測試標準（點擊卡片可同步預覽實物圖）</p>
+            </div>
+            <span class="text-xs font-bold px-3 py-1 rounded-full bg-obsidian-850 border border-obsidian-600 text-ivory-200">共 ${product.modules.length} 項核心模組</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+            ${product.modules.map(m => `
+              <div onclick="previewModulePhoto('${m.image || product.image}', '${m.name}')" class="p-3.5 rounded-2xl bg-obsidian-950/90 border border-obsidian-600 hover:border-amberwarm-500/50 hover:bg-obsidian-850 transition flex items-center gap-3.5 cursor-pointer group">
+                <div class="w-16 h-16 rounded-xl overflow-hidden bg-obsidian-900 shrink-0 border border-obsidian-600">
+                  <img
+                    src="${m.image || product.image}"
+                    alt="${m.name}"
+                    loading="lazy"
+                    onload="this.classList.add('loaded')"
+                    onerror="handleImgError(this, '${photoType}')"
+                    class="tech-photo group-hover:scale-105 w-full h-full object-cover"
+                  />
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center gap-2">
+                    <h4 class="text-sm font-extrabold text-ivory-100 truncate group-hover:text-amberwarm-400 transition">${m.name}</h4>
+                    ${m.badge ? `<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amberwarm-500/20 text-amberwarm-300 border border-amberwarm-500/30 shrink-0">${m.badge}</span>` : ''}
+                  </div>
+                  <p class="text-[11px] text-ivory-300 mt-1 flex items-center gap-2">
+                    <span class="inline-flex items-center gap-1"><i data-lucide="layers" class="w-3 h-3 text-amberwarm-400"></i> ${m.specInfo}</span>
+                  </p>
+                </div>
+                <div class="text-right shrink-0 pl-2">
+                  <span class="text-xs sm:text-sm font-black text-amberwarm-400 block">${m.tolerance}</span>
+                  <span class="text-[10px] font-semibold text-ivory-400">關鍵指標</span>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      switchTab('detail');
+      lucide.createIcons();
+    }
+
+    function previewModulePhoto(url, name) {
+      const mainImg = document.getElementById('detail-main-photo');
+      const captionEl = document.getElementById('detail-photo-caption');
+      if (mainImg && url) {
+        mainImg.classList.remove('loaded');
+        mainImg.src = url;
+      }
+      if (captionEl && name) {
+        captionEl.textContent = `子模組預覽：${name}`;
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 6. MODULE 2: SPEC COMPARISON & BOM WORKBENCH (NEW B2B FEATURE)
+    // -------------------------------------------------------------------------
+    function toggleCompareItem(productId, refreshDetail = false) {
+      const idx = appState.compareIds.indexOf(productId);
+      const product = appState.products.find(p => p.id === productId);
+      if (idx >= 0) {
+        if (appState.compareIds.length <= 1) {
+          showToast('比對工作台至少需保留 1 項產品線');
+          return;
+        }
+        appState.compareIds.splice(idx, 1);
+        showToast(`已從規格比對表移除「${product ? product.name : ''}」`);
+      } else {
+        if (appState.compareIds.length >= 4) {
+          showToast('規格比對工作台最多同時比較 4 項產品線');
+          return;
+        }
+        appState.compareIds.push(productId);
+        showToast(`已加入規格比對工作台：「${product ? product.name : ''}」`);
+      }
+      saveState();
+
+      if (refreshDetail && appState.currentDetailId === productId) {
+        openProductDetail(productId);
+      } else {
+        if (appState.activeTab === 'products') renderProductsList();
+        if (appState.activeTab === 'compare') renderCompareView();
+      }
+    }
+
+    function resetDefaultComparison() {
+      appState.compareIds = ['nb-hinges', 'tablet-foldable-hinges', 'mim-parts'];
+      saveState();
+      renderCompareView();
+      showToast('已恢復為預設推薦工程比對組合');
+    }
+
+    function renderCompareView() {
+      const labelEl = document.getElementById('compare-selected-label');
+      if (labelEl) labelEl.textContent = appState.compareIds.length;
+
+      const pillsContainer = document.getElementById('compare-selector-pills');
+      pillsContainer.innerHTML = appState.products.map(p => {
+        const active = appState.compareIds.includes(p.id);
+        return `
+          <button
+            onclick="toggleCompareItem('${p.id}')"
+            class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold border transition cursor-pointer ${
+              active
+                ? 'bg-amberwarm-500/20 border-amberwarm-500 text-amberwarm-300'
+                : 'bg-obsidian-950 border-obsidian-600 text-ivory-300 hover:border-amberwarm-500/40 hover:text-ivory-100'
+            }"
+          >
+            <i data-lucide="${active ? 'check-circle-2' : 'circle'}" class="w-3.5 h-3.5 ${active ? 'text-amberwarm-400' : 'text-ivory-400'}"></i>
+            <span>${p.name.replace(/\s*\(.*?\)/g, '')}</span>
+          </button>
+        `;
+      }).join('');
+
+      const selectedProducts = appState.compareIds
+        .map(id => appState.products.find(p => p.id === id))
+        .filter(Boolean);
+
+      const matrixContainer = document.getElementById('compare-matrix-container');
+      if (selectedProducts.length === 0) {
+        matrixContainer.innerHTML = `<div class="p-10 text-center text-sm text-ivory-300">請從上方勾選至少一項產品線進行工程規格比對。</div>`;
+        lucide.createIcons();
+        return;
+      }
+
+      const rows = [
+        { label: '所屬技術分類', getValue: p => `<span class="px-2.5 py-1 rounded-full bg-amberwarm-500/15 border border-amberwarm-500/30 text-amberwarm-300 text-xs font-bold">${p.category}</span>` },
+        { label: '適用 3C 與終端裝置', getValue: p => `<span class="text-ivory-100 font-semibold">${p.targetDevices}</span>` },
+        { label: '關鍵公差與精度指標', getValue: p => `<span class="text-amberwarm-400 font-extrabold">${p.toleranceSpec}</span>` },
+        { label: '開合壽命與可靠度驗證', getValue: p => `<span class="text-sage-500 font-bold">${p.lifecycleSpec}</span>` },
+        { label: '常用金屬材質與規範', getValue: p => `<span class="text-ivory-200">${p.materialsSpec}</span>` },
+        { label: '標準打樣與模具週期', getValue: p => `<span class="text-ivory-100 font-semibold">${p.leadTime}</span>` },
+        { label: '主要研發與量產廠區', getValue: p => `<span class="text-ivory-300">${p.plantLocation}</span>` },
+        { label: '代表性子模組清單', getValue: p => `<ul class="space-y-1 text-left">${p.modules.map(m => `<li class="text-xs text-ivory-200">• <strong>${m.name}</strong> <span class="text-amberwarm-400">(${m.tolerance})</span></li>`).join('')}</ul>` }
+      ];
+
+      matrixContainer.innerHTML = `
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse min-w-[680px]">
+            <thead>
+              <tr class="border-b border-obsidian-600 bg-obsidian-950">
+                <th class="p-4 sm:p-5 w-44 text-xs font-extrabold uppercase tracking-wider text-ivory-400 align-top">
+                  工程比對項目
+                </th>
+                ${selectedProducts.map(p => `
+                  <th class="p-4 sm:p-5 align-top border-l border-obsidian-600">
+                    <div class="rounded-xl overflow-hidden h-24 mb-3 bg-obsidian-900 border border-obsidian-600">
+                      <img src="${p.image}" alt="${p.name}" onload="this.classList.add('loaded')" onerror="handleImgError(this, '${p.photoType}')" class="tech-photo w-full h-full object-cover" />
+                    </div>
+                    <h4 class="text-sm font-editorial font-black text-ivory-100 leading-snug mb-1.5">${p.name}</h4>
+                    <div class="flex items-center gap-1.5">
+                      <button onclick="openProductDetail('${p.id}')" class="text-[11px] font-bold text-amberwarm-400 hover:underline">詳情規格</button>
+                      <span class="text-ivory-400">•</span>
+                      <button onclick="openSupportForProduct('${p.id}')" class="text-[11px] font-bold text-sage-500 hover:underline">索取報價</button>
+                    </div>
+                  </th>
+                `).join('')}
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-obsidian-600 text-xs sm:text-sm">
+              ${rows.map(row => `
+                <tr class="hover:bg-obsidian-850/60 transition">
+                  <td class="p-4 sm:p-5 font-extrabold text-ivory-300 bg-obsidian-950/50 align-top">${row.label}</td>
+                  ${selectedProducts.map(p => `
+                    <td class="p-4 sm:p-5 border-l border-obsidian-600 align-top leading-relaxed">
+                      ${row.getValue(p)}
+                    </td>
+                  `).join('')}
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    function exportComparisonCSV() {
+      const selectedProducts = appState.compareIds
+        .map(id => appState.products.find(p => p.id === id))
+        .filter(Boolean);
+      if (selectedProducts.length === 0) return;
+
+      const headers = ['產品線名稱', '分類', '適用終端', '核心公差', '壽命驗證', '材質規範', '打樣週期', '生產據點'];
+      const csvRows = [
+        '\uFEFF' + headers.join(','),
+        ...selectedProducts.map(p => [
+          `"${p.name}"`,
+          `"${p.category}"`,
+          `"${p.targetDevices}"`,
+          `"${p.toleranceSpec}"`,
+          `"${p.lifecycleSpec}"`,
+          `"${p.materialsSpec}"`,
+          `"${p.leadTime}"`,
+          `"${p.plantLocation}"`
+        ].join(','))
+      ];
+
+      const blob = new Blob([csvRows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `SZS_新日興工程規格比對表_${new Date().toISOString().slice(0, 10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('已匯出新日興工程規格比對 CSV 檔案！');
+    }
+
+    function sendComparedToSupport() {
+      const selectedProducts = appState.compareIds
+        .map(id => appState.products.find(p => p.id === id))
+        .filter(Boolean);
+      if (selectedProducts.length === 0) return;
+
+      switchTab('support');
+      const prodSelect = document.getElementById('sup-product');
+      const msgBox = document.getElementById('sup-message');
+      if (prodSelect) prodSelect.value = selectedProducts[0].id;
+      if (msgBox) {
+        const names = selectedProducts.map(p => `• ${p.name}（${p.toleranceSpec}）`).join('\n');
+        msgBox.value = `您好，我們正在進行新專案機構評估，希望針對以下 ${selectedProducts.length} 項比對產品線索取詳細規格書與樣品開發評估：\n${names}\n\n請協助安排業務與工程窗口聯繫，謝謝！`;
+      }
+      showToast('已將比對清單帶入技術諮詢表單！');
+    }
+
+    // -------------------------------------------------------------------------
+    // 7. MODULE 4: FAVORITE SPEC SHEET LOGIC
+    // -------------------------------------------------------------------------
+    function toggleFavorite(productId, refreshDetail = false) {
+      const idx = appState.favorites.indexOf(productId);
+      const product = appState.products.find(p => p.id === productId);
+      if (idx >= 0) {
+        appState.favorites.splice(idx, 1);
+        showToast(`已從收藏清單移除「${product ? product.name : '產品線'}」`);
+      } else {
+        appState.favorites.push(productId);
+        showToast(`已將「${product ? product.name : '產品線'}」加入採購收藏清單`);
+      }
+      saveState();
+
+      if (refreshDetail && appState.currentDetailId === productId) {
+        openProductDetail(productId);
+      } else {
+        if (appState.activeTab === 'products') renderProductsList();
+        if (appState.activeTab === 'favorites') renderFavoritesView();
+        if (appState.activeTab === 'wheel') renderWheelChecklist();
+      }
+    }
+
+    function renderFavoritesView() {
+      const favProducts = appState.products.filter(p => appState.favorites.includes(p.id));
+      const grid = document.getElementById('favorites-grid');
+      const empty = document.getElementById('favorites-empty');
+
+      if (favProducts.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+      } else {
+        empty.classList.add('hidden');
+        grid.innerHTML = favProducts.map(createProductCardHTML).join('');
+      }
+      lucide.createIcons();
+    }
+
+    function sendFavoritesToSupport() {
+      const favProducts = appState.products.filter(p => appState.favorites.includes(p.id));
+      if (favProducts.length === 0) {
+        showToast('收藏清單目前為空，請先加入感興趣的產品線！');
+        return;
+      }
+      switchTab('support');
+      const prodSelect = document.getElementById('sup-product');
+      const msgBox = document.getElementById('sup-message');
+      if (prodSelect) prodSelect.value = favProducts[0].id;
+      if (msgBox) {
+        const listText = favProducts.map(p => `• ${p.name}（打樣週期：${p.leadTime}）`).join('\n');
+        msgBox.value = `您好，我們希望針對收藏清單中的以下產品線申請樣品與報價評估：\n${listText}\n\n請協助提供相關技術規格資料與打樣流程說明。`;
+      }
+      showToast('已將收藏清單自動填入技術諮詢表單！');
+    }
+
+    // -------------------------------------------------------------------------
+    // 8. MODULE 3: SMART SOLUTION SELECTOR WHEEL (CANVAS + ANIMATION)
+    // -------------------------------------------------------------------------
+    const WHEEL_PALETTE = [
+      '#E87A35', // 暖琥珀焦糖橘
+      '#2E2925', // 深炭木棕
+      '#9E4814', // 冶金赤銅
+      '#3A4F38', // 工業永續深綠
+      '#C96120', // 精密炙銅
+      '#221E1B', // 黑曜岩灰
+      '#B87A24', // 黃銅金屬金
+      '#473B33'  // 鍛造深棕
+    ];
+
+    let currentWheelAngle = 0;
+    let isSpinning = false;
+
+    function getActiveWheelCandidates() {
+      if (appState.wheelOnlyFav) {
+        return appState.products.filter(p => appState.favorites.includes(p.id));
+      }
+      return appState.products.filter(p => appState.wheelSelectedIds.includes(p.id));
+    }
+
+    function setWheelOnlyFav(onlyFav) {
+      appState.wheelOnlyFav = onlyFav;
+      updateWheelModeButtons();
+      resizeAndDrawWheel();
+    }
+
+    function updateWheelModeButtons() {
+      const btnAll = document.getElementById('wheel-mode-all');
+      const btnFav = document.getElementById('wheel-mode-fav');
+      const selCount = document.getElementById('wheel-selected-count');
+      const favCount = document.getElementById('wheel-fav-count');
+
+      if (selCount) selCount.textContent = appState.wheelSelectedIds.length;
+      if (favCount) favCount.textContent = appState.favorites.length;
+
+      if (!appState.wheelOnlyFav) {
+        btnAll.classList.add('bg-amberwarm-500', 'text-white', 'shadow-sm');
+        btnAll.classList.remove('text-ivory-300');
+        btnFav.classList.remove('bg-amberwarm-500', 'text-white', 'shadow-sm');
+        btnFav.classList.add('text-ivory-300');
+      } else {
+        btnFav.classList.add('bg-amberwarm-500', 'text-white', 'shadow-sm');
+        btnFav.classList.remove('text-ivory-300');
+        btnAll.classList.remove('bg-amberwarm-500', 'text-white', 'shadow-sm');
+        btnAll.classList.add('text-ivory-300');
+      }
+    }
+
+    function spinFromFavorites() {
+      if (appState.favorites.length === 0) {
+        showToast('收藏清單目前為空，已為您切換至全部產品線轉盤！');
+        appState.wheelOnlyFav = false;
+      } else {
+        appState.wheelOnlyFav = true;
+      }
+      switchTab('wheel');
+    }
+
+    function renderWheelChecklist() {
+      updateWheelModeButtons();
+      const container = document.getElementById('wheel-checklist');
+      container.innerHTML = appState.products.map(p => {
+        const checked = appState.wheelSelectedIds.includes(p.id);
+        const isFav = appState.favorites.includes(p.id);
+        return `
+          <label class="flex items-center justify-between p-2.5 rounded-xl border border-obsidian-600 bg-obsidian-950/60 hover:bg-obsidian-850 cursor-pointer transition">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <input
+                type="checkbox"
+                ${checked ? 'checked' : ''}
+                onchange="toggleWheelCandidate('${p.id}')"
+                class="w-4 h-4 rounded accent-amberwarm-500 cursor-pointer shrink-0"
+              />
+              <span class="text-xs font-bold text-ivory-100 truncate">${p.name}</span>
+              ${p.isFlagship ? '<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amberwarm-500/20 text-amberwarm-300 shrink-0">主力</span>' : ''}
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              ${isFav ? '<i data-lucide="bookmark-check" class="w-3.5 h-3.5 text-amberwarm-400"></i>' : ''}
+              <span class="text-[11px] text-ivory-400">${p.category}</span>
+            </div>
+          </label>
+        `;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    function toggleWheelCandidate(id) {
+      if (appState.wheelOnlyFav) {
+        appState.wheelOnlyFav = false;
+      }
+      const idx = appState.wheelSelectedIds.indexOf(id);
+      if (idx >= 0) {
+        appState.wheelSelectedIds.splice(idx, 1);
+      } else {
+        appState.wheelSelectedIds.push(id);
+      }
+      saveState();
+      updateWheelModeButtons();
+      resizeAndDrawWheel();
+    }
+
+    function selectAllWheelCandidates(selectAll) {
+      appState.wheelOnlyFav = false;
+      appState.wheelSelectedIds = selectAll ? appState.products.map(p => p.id) : [];
+      saveState();
+      renderWheelChecklist();
+      resizeAndDrawWheel();
+    }
+
+    function resizeAndDrawWheel() {
+      const canvas = document.getElementById('wheel-canvas');
+      if (!canvas) return;
+      const parent = canvas.parentElement;
+      const size = parent.clientWidth || 340;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = size * dpr;
+      canvas.height = size * dpr;
+
+      const ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+      drawWheel(ctx, size, size);
+    }
+
+    function drawWheel(ctx, width, height) {
+      const candidates = getActiveWheelCandidates();
+      const cx = width / 2;
+      const cy = height / 2;
+      const radius = Math.min(cx, cy) - 4;
+
+      ctx.clearRect(0, 0, width, height);
+
+      if (candidates.length === 0) {
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+        ctx.fillStyle = '#1C1917';
+        ctx.fill();
+        ctx.fillStyle = '#968B80';
+        ctx.font = 'bold 14px "Noto Sans TC", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('請至少勾選一項產品線', cx, cy - 35);
+        return;
+      }
+
+      const arc = (Math.PI * 2) / candidates.length;
+
+      candidates.forEach((prod, i) => {
+        const startAngle = currentWheelAngle + i * arc;
+        const endAngle = startAngle + arc;
+        const bgColor = WHEEL_PALETTE[i % WHEEL_PALETTE.length];
+
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, radius, startAngle, endAngle);
+        ctx.closePath();
+        ctx.fillStyle = bgColor;
+        ctx.fill();
+
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'rgba(245, 240, 235, 0.18)';
+        ctx.stroke();
+
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(startAngle + arc / 2);
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+        ctx.fillStyle = '#F5F0EB';
+        ctx.font = 'bold 12px "Noto Sans TC", sans-serif';
+
+        const cleanLabel = prod.name.replace(/\s*\(.*?\)/g, '');
+        const label = cleanLabel.length > 8 ? cleanLabel.slice(0, 7) + '…' : cleanLabel;
+        ctx.fillText(label, radius - 18, 0);
+        ctx.restore();
+      });
+    }
+
+    function playTickSound() {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(520, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(160, ctx.currentTime + 0.035);
+        gain.gain.setValueAtTime(0.08, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.035);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.04);
+      } catch (e) {}
+    }
+
+    function spinWheel() {
+      if (isSpinning) return;
+      const candidates = getActiveWheelCandidates();
+      if (candidates.length === 0) {
+        showToast('請先在右側勾選至少一項產品線！');
+        return;
+      }
+
+      isSpinning = true;
+      const pointer = document.getElementById('wheel-pointer');
+      const statusText = document.getElementById('wheel-status-text');
+      pointer.classList.add('pointer-ticking');
+      statusText.textContent = '正在分析製程匹配度與產能交期...';
+
+      const extraSpins = 5 + Math.random() * 4;
+      const totalRotation = extraSpins * Math.PI * 2 + Math.random() * Math.PI * 2;
+      const startAngle = currentWheelAngle;
+      const duration = 3600;
+      const startTime = performance.now();
+      let lastSector = -1;
+
+      function animate(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOut = 1 - Math.pow(1 - progress, 4);
+        currentWheelAngle = startAngle + totalRotation * easeOut;
+
+        const arc = (Math.PI * 2) / candidates.length;
+        const normalized = (((-Math.PI / 2 - currentWheelAngle) % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
+        const currentSector = Math.floor(normalized / arc);
+        if (currentSector !== lastSector) {
+          lastSector = currentSector;
+          playTickSound();
+        }
+
+        resizeAndDrawWheel();
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          isSpinning = false;
+          pointer.classList.remove('pointer-ticking');
+          const winner = candidates[currentSector % candidates.length];
+          onWheelFinished(winner);
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    function onWheelFinished(winner) {
+      const statusText = document.getElementById('wheel-status-text');
+      statusText.textContent = `推薦方案鎖定：「${winner.name}」！`;
+
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 65,
+          spread: 65,
+          origin: { y: 0.6 },
+          colors: ['#E87A35', '#F5B041', '#6B9966', '#F5F0EB']
+        });
+      }
+
+      const placeholder = document.getElementById('wheel-result-placeholder');
+      const content = document.getElementById('wheel-result-content');
+      const badge = document.getElementById('wheel-result-badge');
+
+      placeholder.classList.add('hidden');
+      badge.classList.remove('hidden');
+      content.classList.remove('hidden');
+
+      const topModule = winner.modules[0];
+      const photoType = winner.photoType || 'default';
+
+      content.innerHTML = `
+        <div class="rounded-2xl overflow-hidden border border-obsidian-600 bg-obsidian-950 mb-4">
+          <div class="h-32 w-full relative overflow-hidden bg-obsidian-900">
+            <img
+              src="${winner.image}"
+              alt="${winner.name}"
+              onload="this.classList.add('loaded')"
+              onerror="handleImgError(this, '${photoType}')"
+              class="tech-photo w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-2.5 left-3 px-2.5 py-0.5 rounded-full bg-amberwarm-500 text-white text-[11px] font-bold">
+              ${winner.category}
+            </span>
+          </div>
+          <div class="p-4">
+            <h4 class="text-lg font-editorial font-black text-ivory-100">${winner.name}</h4>
+            <p class="text-xs text-ivory-300 mt-1 flex items-center gap-1.5">
+              <i data-lucide="clock" class="w-3.5 h-3.5 text-amberwarm-400"></i>
+              <span>${winner.leadTime}・${winner.toleranceSpec}</span>
+            </p>
+            ${topModule ? `
+              <div class="mt-3 pt-2.5 border-t border-obsidian-600 flex items-center justify-between text-xs">
+                <span class="text-ivory-300">代表模組：<strong class="text-ivory-100">${topModule.name}</strong></span>
+                <span class="font-extrabold text-amberwarm-400">${topModule.tolerance}</span>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+
+        <div class="flex gap-2.5">
+          <button onclick="openProductDetail('${winner.id}')" class="flex-1 py-2.5 px-3 rounded-xl bg-amberwarm-500 text-white text-xs font-bold hover:bg-amberwarm-600 transition flex items-center justify-center gap-1.5">
+            <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+            <span>檢視完整子模組規格</span>
+          </button>
+          <button onclick="openSupportForProduct('${winner.id}')" class="py-2.5 px-3.5 rounded-xl bg-obsidian-800 border border-obsidian-600 text-ivory-200 text-xs font-bold hover:border-amberwarm-500/50 transition flex items-center justify-center gap-1">
+            <i data-lucide="headset" class="w-3.5 h-3.5 text-amberwarm-400"></i>
+            <span>諮詢</span>
+          </button>
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    // -------------------------------------------------------------------------
+    // 9. MODULE 5: CUSTOMER SERVICE & TECHNICAL SUPPORT (RFQ + FAQ)
+    // -------------------------------------------------------------------------
+    function renderSupportView() {
+      const prodSelect = document.getElementById('sup-product');
+      if (prodSelect) {
+        const currentVal = prodSelect.value;
+        prodSelect.innerHTML = appState.products.map(p => `
+          <option value="${p.id}">${p.name}</option>
+        `).join('');
+        if (currentVal && appState.products.some(p => p.id === currentVal)) {
+          prodSelect.value = currentVal;
+        }
+      }
+
+      renderSupportTickets();
+      renderFaqAccordion();
+      lucide.createIcons();
+    }
+
+    function openSupportForProduct(productId) {
+      switchTab('support');
+      const prodSelect = document.getElementById('sup-product');
+      const product = appState.products.find(p => p.id === productId);
+      if (prodSelect) prodSelect.value = productId;
+      const msgBox = document.getElementById('sup-message');
+      if (msgBox && product && !msgBox.value.trim()) {
+        msgBox.value = `您好，我們正在評估「${product.name}」的應用方案，希望進一步索取詳細規格書（Datasheet）並了解客製化打樣時程。`;
+      }
+    }
+
+    function submitSupportTicket(e) {
+      e.preventDefault();
+      const company = document.getElementById('sup-company').value.trim();
+      const contact = document.getElementById('sup-contact').value.trim();
+      const email = document.getElementById('sup-email').value.trim();
+      const type = document.getElementById('sup-type').value;
+      const productId = document.getElementById('sup-product').value;
+      const volume = document.getElementById('sup-volume').value.trim() || '依專案評估';
+      const message = document.getElementById('sup-message').value.trim();
+
+      const product = appState.products.find(p => p.id === productId);
+      if (!company || !contact || !email || !message) return;
+
+      const randomNum = Math.floor(1000 + Math.random() * 9000);
+      const now = new Date();
+      const timestamp = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+      const newTicket = {
+        id: `SZS-2026-${randomNum}`,
+        company,
+        contact,
+        email,
+        type,
+        productName: product ? product.name : '綜合精密機構方案',
+        volume,
+        message,
+        status: '已受理・指派研發與業務窗口',
+        createdAt: timestamp
+      };
+
+      appState.tickets.unshift(newTicket);
+      saveState();
+
+      document.getElementById('support-form').reset();
+      renderSupportTickets();
+      showToast(`諮詢單 ${newTicket.id} 已成功送出！樹林總部專員將於 24 小時內聯繫您。`);
+    }
+
+    function renderSupportTickets() {
+      const container = document.getElementById('support-tickets-list');
+      const badge = document.getElementById('ticket-total-badge');
+      if (badge) badge.textContent = `共 ${appState.tickets.length} 筆案件`;
+
+      container.innerHTML = appState.tickets.map(t => `
+        <div class="p-4 rounded-2xl bg-obsidian-950 border border-obsidian-600 space-y-2">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="font-mono text-xs font-extrabold text-amberwarm-400 bg-amberwarm-500/15 border border-amberwarm-500/30 px-2.5 py-0.5 rounded-md">${t.id}</span>
+              <span class="text-xs font-bold text-ivory-100">${t.productName}</span>
+            </div>
+            <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-sage-500/15 border border-sage-500/30 text-sage-500">
+              ${t.status}
+            </span>
+          </div>
+          <p class="text-xs text-ivory-200 leading-relaxed">${t.message}</p>
+          <div class="flex flex-wrap items-center justify-between gap-2 text-[11px] text-ivory-400 pt-1 border-t border-obsidian-700">
+            <span>${t.company}・${t.contact} (${t.type})</span>
+            <span>${t.createdAt}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleFaq(idx) {
+      appState.openFaqIndex = appState.openFaqIndex === idx ? -1 : idx;
+      renderFaqAccordion();
+      lucide.createIcons();
+    }
+
+    function renderFaqAccordion() {
+      const container = document.getElementById('faq-accordion');
+      if (!container) return;
+
+      container.innerHTML = DEFAULT_FAQS.map((item, idx) => {
+        const isOpen = appState.openFaqIndex === idx;
+        return `
+          <div class="rounded-2xl bg-obsidian-950 border border-obsidian-600 overflow-hidden">
+            <button type="button" onclick="toggleFaq(${idx})" class="w-full p-3.5 text-left flex items-center justify-between gap-2 hover:bg-obsidian-850 transition cursor-pointer">
+              <span class="text-xs font-bold text-ivory-100 leading-snug">${item.q}</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-amberwarm-400 shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}"></i>
+            </button>
+            ${isOpen ? `
+              <div class="px-3.5 pb-3.5 text-xs text-ivory-300 leading-relaxed border-t border-obsidian-700 pt-2.5">
+                ${item.a}
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    // -------------------------------------------------------------------------
+    // 10. TOAST & INITIALIZATION
+    // -------------------------------------------------------------------------
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'pointer-events-auto flex items-center gap-2.5 px-4 py-3 rounded-2xl bg-obsidian-800 border border-amberwarm-500/40 text-ivory-100 text-xs sm:text-sm font-semibold shadow-xl transition-all duration-300 translate-y-2 opacity-0';
+      toast.innerHTML = `
+        <span class="w-2 h-2 rounded-full bg-amberwarm-400 shrink-0"></span>
+        <span>${message}</span>
+      `;
+      container.appendChild(toast);
+
+      requestAnimationFrame(() => {
+        toast.classList.remove('translate-y-2', 'opacity-0');
+      });
+
+      setTimeout(() => {
+        toast.classList.add('translate-y-2', 'opacity-0');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    function renderAll() {
+      updateGlobalCounters();
+      renderProductsList();
+      renderCompareView();
+      renderWheelChecklist();
+      resizeAndDrawWheel();
+      renderFavoritesView();
+      renderSupportView();
+    }
+
+    window.addEventListener('resize', () => {
+      if (appState.activeTab === 'wheel') {
+        resizeAndDrawWheel();
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      loadState();
+      renderAll();
+      switchTab('products');
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
